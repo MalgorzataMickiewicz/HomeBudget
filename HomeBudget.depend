@@ -7,7 +7,7 @@
 
 1579543431 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\expensesfilemanager.cpp
 
-1579632774 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.cpp
+1579634520 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.cpp
 	"HomeBudget.h"
 	"UsersManager.h"
 
@@ -15,7 +15,7 @@
 
 1579543431 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomesfilemanager.cpp
 
-1579632827 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
+1579634520 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
 	"HomeBudget.h"
 	<iostream>
 
@@ -24,16 +24,16 @@
 
 1579543431 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersfilemanager.cpp
 
-1579633263 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.cpp
+1579634520 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.cpp
 	"UsersManager.h"
 
 1579543431 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\xmlfile.cpp
 
-1579632774 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.h
+1579634520 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.h
 	"UsersManager.h"
 	<iostream>
 
-1579634223 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.h
+1579634520 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -41,6 +41,8 @@
 	<windows.h>
 	"Users.h"
 
-1579630129 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\users.h
+1579634520 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\users.h
 	<iostream>
+
+1579634520 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\filesmanager.cpp
 

@@ -40,6 +40,8 @@
 		<Unit filename="Expenses.h" />
 		<Unit filename="ExpensesFileManager.cpp" />
 		<Unit filename="ExpensesFileManager.h" />
+		<Unit filename="FilesManager.cpp" />
+		<Unit filename="FilesManager.h" />
 		<Unit filename="HomeBudget.cpp" />
 		<Unit filename="HomeBudget.h" />
 		<Unit filename="Incomes.cpp" />
