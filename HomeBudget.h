@@ -13,6 +13,8 @@ class HomeBudget{
 
 public:
     void registerUser();
+    void printAllUsers();
+    void loginUser();
 };
 
 #endif

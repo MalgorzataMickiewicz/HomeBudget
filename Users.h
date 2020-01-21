@@ -13,6 +13,7 @@ class Users {
     string userLogin;
     string userPassword;
 
+public:
 //Setters
     void setUserID(int newUserID);
     void setUserName(string newUserName);
