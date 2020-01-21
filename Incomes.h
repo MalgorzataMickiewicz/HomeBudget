@@ -15,7 +15,7 @@ public:
 //Setters
     void setIncomesDate(int newIncomesDate);
     void setIncomesValue(float newIncomesValue);
-    void setIncomesName(string newIncomesname);
+    void setIncomesName(string newIncomesName);
 
 //Getters
     int getIncomesDate();
