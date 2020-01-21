@@ -9,6 +9,8 @@ int main()
     HomeBudget homeBudget;
 
     homeBudget.registerUser();
+    homeBudget.printAllUsers();
+    homeBudget.loginUser();
 
     return 0;
 }

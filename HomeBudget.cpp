@@ -4,3 +4,12 @@
 void HomeBudget::registerUser(){
     usersManager.registerUser();
 }
+
+void HomeBudget::printAllUsers() {
+    usersManager.printAllUsers();
+}
+
+void HomeBudget::loginUser() {
+    usersManager.loginUser();
+}
+
