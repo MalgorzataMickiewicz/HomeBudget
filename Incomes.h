@@ -7,20 +7,20 @@ using namespace std;
 
 class Incomes {
 
-    int dateOfIncomes;
-    float valueOfIncomes;
-    string nameOfIncomes;
+    int dateOfIncome;
+    float valueOfIncome;
+    string nameOfIncome;
 
 public:
 //Setters
-    void setIncomesDate(int newIncomesDate);
-    void setIncomesValue(float newIncomesValue);
-    void setIncomesName(string newIncomesName);
+    void setIncomeDate(int newIncomeDate);
+    void setIncomeValue(float newIncomeValue);
+    void setIncomeName(string newIncomeName);
 
 //Getters
-    int getIncomesDate();
-    float getIncomesValue();
-    string getIncomesName();
+    int getIncomeDate();
+    float getIncomeValue();
+    string getIncomeName();
 
 };
 

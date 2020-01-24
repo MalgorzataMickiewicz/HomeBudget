@@ -1,23 +1,23 @@
 #include "Incomes.h"
 
 //Setter
-void Incomes::setIncomesDate(int newIncomesDate) {
-    dateOfIncomes=newIncomesDate;
+void Incomes::setIncomeDate(int newIncomeDate) {
+    dateOfIncome=newIncomeDate;
 }
-void Incomes::setIncomesValue(float newIncomesValue) {
-    valueOfIncomes=newIncomesValue;
+void Incomes::setIncomeValue(float newIncomeValue) {
+    valueOfIncome=newIncomeValue;
 }
-void Incomes::setIncomesName(string newIncomesName) {
-    nameOfIncomes=newIncomesName;
+void Incomes::setIncomeName(string newIncomeName) {
+    nameOfIncome=newIncomeName;
 }
 
 //Getter
-int Incomes::getIncomesDate() {
-    return dateOfIncomes;
+int Incomes::getIncomeDate() {
+    return dateOfIncome;
 }
-float Incomes::getIncomesValue() {
-    return valueOfIncomes;
+float Incomes::getIncomeValue() {
+    return valueOfIncome;
 }
-string Incomes::getIncomesName() {
-    return nameOfIncomes;
+string Incomes::getIncomeName() {
+    return nameOfIncome;
 }

@@ -26,6 +26,8 @@ public:
     int getIDNewUser();
     void printAllUsers();
     void loginUser();
+    void changePassword();
+    void addNewPasswordToVector(string userPassword);
 
 };
 

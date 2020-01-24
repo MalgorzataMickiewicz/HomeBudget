@@ -13,3 +13,14 @@ void HomeBudget::loginUser() {
     usersManager.loginUser();
 }
 
+void HomeBudget::changePassword() {
+    usersManager.changePassword();
+}
+
+void HomeBudget::addIncome() {
+    incomesManager.addIncome();
+}
+
+void HomeBudget::printAllIncome(){
+    incomesManager.printAllIncome();
+}
