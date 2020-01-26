@@ -12,6 +12,7 @@ class HomeBudget{
 
     UsersManager usersManager;
     BudgetManager incomesManager;
+    BudgetManager expensesManager;
 
 public:
     void registerUser();
@@ -21,7 +22,9 @@ public:
     void addNewPasswordToVector();
 
     void addIncome();
-    void printAllIncome();
+    void printAllIncomes();
+    void addExpense();
+    void printAllExpenses();
 };
 
 #endif
