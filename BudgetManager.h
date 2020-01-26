@@ -8,6 +8,7 @@
 #include <windows.h>
 
 #include "Incomes.h"
+#include "Expenses.h"
 #include "AuxiliaryMethods.h"
 
 using namespace std;
@@ -15,12 +16,16 @@ using namespace std;
 class BudgetManager {
 
     vector <Incomes> incomes;
+    vector <Expenses> expenses;
     Incomes getDateOfNewIncome();
+    Expenses getDateOfNewExpense();
 
 public:
 
     void addIncome();
-    void printAllIncome();
+    void printAllIncomes();
+    void addExpense();
+    void printAllExpenses();
 
 };
 

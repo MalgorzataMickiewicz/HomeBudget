@@ -21,6 +21,14 @@ void HomeBudget::addIncome() {
     incomesManager.addIncome();
 }
 
-void HomeBudget::printAllIncome(){
-    incomesManager.printAllIncome();
+void HomeBudget::printAllIncomes(){
+    incomesManager.printAllIncomes();
+}
+
+void HomeBudget::addExpense() {
+    expensesManager.addExpense();
+}
+
+void HomeBudget::printAllExpenses(){
+    expensesManager.printAllExpenses();
 }

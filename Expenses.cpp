@@ -1,23 +1,23 @@
 #include "Expenses.h"
 
 //Setter
-void Expenses::setExpensesDate(int newExpensesDate) {
-    dateOfExpenses=newExpensesDate;
+void Expenses::setExpenseDate(int newExpenseDate) {
+    dateOfExpense=newExpenseDate;
 }
-void Expenses::setExpensesValue(float newExpensesValue) {
-    valueOfExpenses=newExpensesValue;
+void Expenses::setExpenseValue(float newExpenseValue) {
+    valueOfExpense=newExpenseValue;
 }
-void Expenses::setExpensesName(string newExpensesName) {
-    nameOfExpenses=newExpensesName;
+void Expenses::setExpenseName(string newExpenseName) {
+    nameOfExpense=newExpenseName;
 }
 
 //Getter
-int Expenses::getExpensesDate() {
-    return dateOfExpenses;
+int Expenses::getExpenseDate() {
+    return dateOfExpense;
 }
-float Expenses::getExpensesValue() {
-    return valueOfExpenses;
+float Expenses::getExpenseValue() {
+    return valueOfExpense;
 }
-string Expenses::getExpensesName() {
-    return nameOfExpenses;
+string Expenses::getExpenseName() {
+    return nameOfExpense;
 }
