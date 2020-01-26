@@ -1,3 +1,5 @@
+#include <iomanip>
+
 #include "BudgetManager.h"
 
 using namespace std;
@@ -15,19 +17,47 @@ Incomes BudgetManager::getDateOfNewIncome() {
 
     string dateOfIncomeInString = "";
     int dateOfIncome = 0;
-    cout << "----------"<< "DODANIE PRZYCHODU" << "----------" << endl << "Podaj date przychodu w formacie: YYYY-MM-DD: ";
-    cin >> dateOfIncomeInString;
-    dateOfIncome = AuxiliaryMethods::conversionStringToInt(dateOfIncomeInString);
-    income.setIncomeDate(dateOfIncome);
+    int choice = 0;
+
+    cout << "----------"<< "DODANIE PRZYCHODU" << "----------" << endl;
+    cout << "Czy przychod jest z dzisiaj?" << endl;
+    cout << "1. TAK" << endl;
+    cout << "2. NIE" << endl;
+    cin >> choice;
+    if (choice == 1){
+        dateOfIncome = AuxiliaryMethods::checkActualDate();
+        income.setIncomeDate(dateOfIncome);
+    }
+    else{
+        cout << "Podaj date przychodu w formacie: YYYY-MM-DD: ";
+        cin >> dateOfIncomeInString;
+        dateOfIncome = AuxiliaryMethods::conversionStringToInt(dateOfIncomeInString);
+        income.setIncomeDate(dateOfIncome);
+    }
 
     float valueOfIncome = 0;
-    cout << "Podaj wartosc przychodu: ";
-    cin >> valueOfIncome;
+    int goodValue = 1;
+
+     do{
+        goodValue = 1;
+        cout << "Podaj wartosc przychodu, np. 100.22: ";
+        cin >> valueOfIncome;
+         if( !cin ){
+                cout << "Wprowadzona wartosc nie jest liczba!" << endl;
+                cin.clear();
+                cin.sync();
+                system("Pause");
+                system("cls");
+                goodValue = 0;
+                }
+     }while(goodValue == 0);
+
     income.setIncomeValue(valueOfIncome);
 
     string nameOfIncome = "";
-    cout << "Podaj nazawe przychodu: ";
-    cin >> nameOfIncome;
+    cout << "Podaj nazwe przychodu: ";
+    cin.sync();
+    getline(cin,nameOfIncome);
     income.setIncomeName(nameOfIncome);
 
     return income;

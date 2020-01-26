@@ -10,6 +10,7 @@ class AuxiliaryMethods {
 
 public:
     int static conversionStringToInt(string dateInString);
+    int static checkActualDate();
 };
 
 #endif
