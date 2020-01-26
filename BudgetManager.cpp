@@ -34,7 +34,6 @@ Incomes BudgetManager::getDateOfNewIncome() {
         cin >> dateOfIncomeInString;
         dateOfIncome = AuxiliaryMethods::conversionStringToInt(dateOfIncomeInString);
         if(dateOfIncome == 0){
-                cout << "Podales bledna date" << endl;
                 system("Pause");
                 system("cls");
                 cin.clear();

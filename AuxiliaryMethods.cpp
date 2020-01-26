@@ -40,6 +40,11 @@ int AuxiliaryMethods::conversionStringToInt(string dateInString) {
     changeYearFormat >> yearInInt;
 
     if(checkMonth(monthInInt, yearInInt, dayInInt) == false){
+        cout << "Podales bledna date" << endl;
+        return 0;
+    }
+    else if(checkYear(monthInInt, yearInInt, dayInInt) == false){
+        cout << "Wprowadziles zbyt stara date! Zbieramy tylko dane z XI wieku" << endl;
         return 0;
     }
     return dateInInt;
@@ -84,11 +89,18 @@ bool AuxiliaryMethods::checkMonth(int month, int year, int day){
         }
     }
     else{
-        cout << "Wpisales bledna date" << endl;
-        system("Pause");
         return false;
     }
     }
+
+bool AuxiliaryMethods::checkYear(int month, int year, int day){
+    if(year < 2000){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 
 int AuxiliaryMethods::checkActualDate() {
 
