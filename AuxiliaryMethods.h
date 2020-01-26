@@ -10,6 +10,9 @@ class AuxiliaryMethods {
 
 public:
     int static conversionStringToInt(string dateInString);
+    int static checkActualDate();
+    bool static checkMonth(int month, int year, int day);
+    bool static checkYear(int month, int year, int day);
 };
 
 #endif
