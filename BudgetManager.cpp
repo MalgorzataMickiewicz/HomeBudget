@@ -29,10 +29,18 @@ Incomes BudgetManager::getDateOfNewIncome() {
         income.setIncomeDate(dateOfIncome);
     }
     else{
+        do{
         cout << "Podaj date przychodu w formacie: YYYY-MM-DD: ";
         cin >> dateOfIncomeInString;
         dateOfIncome = AuxiliaryMethods::conversionStringToInt(dateOfIncomeInString);
-        income.setIncomeDate(dateOfIncome);
+        if(dateOfIncome == 0){
+                cout << "Podales bledna date" << endl;
+                system("Pause");
+                system("cls");
+                cin.clear();
+                }
+     }while(dateOfIncome == 0);
+     income.setIncomeDate(dateOfIncome);
     }
 
     float valueOfIncome = 0;

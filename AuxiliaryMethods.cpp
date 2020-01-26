@@ -15,8 +15,9 @@ int AuxiliaryMethods::conversionStringToInt(string dateInString) {
     string monthInString = "";
     string dayInString = "";
     int dateInInt = 0;
-
-    //DODAC WALIDACJE SPRAWDZAJACA CZY DATA JEST POPRAWNA
+    int dayInInt = 0;
+    int monthInInt = 0;
+    int yearInInt = 0;
 
     dayInString = dateInString.substr(8,2);
     monthInString = dateInString.substr(5,2);
@@ -29,8 +30,65 @@ int AuxiliaryMethods::conversionStringToInt(string dateInString) {
     istringstream changeDateFormat(shortDateInString);
     changeDateFormat >> dateInInt;
 
+    istringstream changeDayFormat(dayInString);
+    changeDayFormat >> dayInInt;
+
+    istringstream changeMonthFormat(monthInString);
+    changeMonthFormat >> monthInInt;
+
+    istringstream changeYearFormat(yearInString);
+    changeYearFormat >> yearInInt;
+
+    if(checkMonth(monthInInt, yearInInt, dayInInt) == false){
+        return 0;
+    }
     return dateInInt;
 }
+
+bool AuxiliaryMethods::checkMonth(int month, int year, int day){
+    if (month == 4 || month == 6 || month == 9 || month == 11){
+        if(day< 31 && day > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else if (month == 2){
+
+        bool leapyear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        if (leapyear == 0){
+            if(day < 29 && day > 0){
+                return true;
+            }
+                else{
+                    return false;
+                }
+            }
+        else{
+        if(day < 30 && day > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+        }
+    }
+    else if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12){
+
+        if(day < 32 && day > 0){
+        return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        cout << "Wpisales bledna date" << endl;
+        system("Pause");
+        return false;
+    }
+    }
 
 int AuxiliaryMethods::checkActualDate() {
 
