@@ -1,4 +1,6 @@
 #include <iomanip>
+#include <algorithm>
+#include <vector>
 
 #include "BudgetManager.h"
 
@@ -49,6 +51,7 @@ Incomes BudgetManager::getDateOfNewIncome() {
         goodValue = 1;
         cout << "Podaj wartosc przychodu, np. 100.22: ";
         //JAK SIE WPROWADZI NP. 200.c to przechodzi!
+        //DODAC ZAMIANE , na .
         cin >> valueOfIncome;
          if( !cin ){
                 cout << "Wprowadzona wartosc nie jest liczba!" << endl;
@@ -72,15 +75,16 @@ Incomes BudgetManager::getDateOfNewIncome() {
 }
 
 void BudgetManager::printAllIncomes(){
+    cout << "PRZYCHODY Sortowanie od najstarszych: ";
     system("cls");
-    cout << "Zapisane przychody:" << endl;
+
     for(int i = 0; i< incomes.size(); i++) {
         cout << incomes[i].getIncomeDate() << endl;
         cout << incomes[i].getIncomeValue() << endl;
         cout << incomes[i].getIncomeName() << endl;
-
         system("Pause");
     }
+
 }
 
 void BudgetManager::addExpense() {
@@ -129,6 +133,7 @@ Expenses BudgetManager::getDateOfNewExpense() {
         cout << "Podaj wartosc wydatku, np. 100.22: ";
         cin >> valueOfExpense;
         //JAK SIE WPROWADZI NP. 200.c to przechodzi!
+        //DODAC ZAMIANE , na .
          if( !cin ){
                 cout << "Wprowadzona wartosc nie jest liczba!" << endl;
                 cin.clear();
@@ -152,12 +157,17 @@ Expenses BudgetManager::getDateOfNewExpense() {
 
 void BudgetManager::printAllExpenses(){
     system("cls");
+    sort (expenses.begin(), expenses.end(), sortByDate);
     cout << "Zapisane wydatki:" << endl;
     for(int i = 0; i< expenses.size(); i++) {
         cout << expenses[i].getExpenseDate() << endl;
         cout << expenses[i].getExpenseValue() << endl;
         cout << expenses[i].getExpenseName() << endl;
-
         system("Pause");
     }
 }
+
+bool BudgetManager::sortByDate(Expenses& t1, Expenses& t2){
+    return t1->*getExpenseDate() < t2->*getExpenseDate();
+}
+
