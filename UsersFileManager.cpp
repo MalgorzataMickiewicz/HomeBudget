@@ -23,23 +23,42 @@ void UsersFileManager::addUserToFile(Users user){
     xml.AddElem("Password", user.getUserPassword());
     xml.Save("Users.xml");
 }
-/*
+
 vector <Users> UsersFileManager::loadUsersFromFile(){
     Users user;
     vector <Users> users;
-    string dataOneUserSeparetedWithVerticalLines = "";
+    CMarkup xml;
 
-    textFile.open(getNameOfFile().c_str(), ios::in);
-
-    if (textFile.good() == true)
-    {
-        while (getline(textFile, dataOneUserSeparetedWithVerticalLines))
-        {
-            user = getDateOfUser(dataOneUserSeparetedWithVerticalLines);
+    bool fileExists = xml.Load( "Users.xml" );
+    if (fileExists){
+            MCD_STR UserId;//create string variable UserId
+            MCD_STR Login;//create string variable Login
+            MCD_STR Name;//create string variable Name
+            MCD_STR LastName;//create string variable LastName
+            MCD_STR Password;//create string variable Password
+            while (xml.FindChildElem("User")){
+            xml.FindElem();//set on Users
+            xml.IntoElem();//into Users
+            xml.IntoElem();//into User
+            xml.FindElem("UserId");//looking for UserId
+            UserId = xml.GetData();
+            xml.FindElem("Login");//looking for Login
+            Login = xml.GetData();
+            xml.FindElem("Name");//looking for Name
+            Name = xml.GetData();
+            xml.FindElem("LastName");//looking for LastName
+            LastName = xml.GetData();
+            xml.FindElem("Password");//looking for Password
+            Password = xml.GetData();
+            xml.OutOfElem();//out of User
+            xml.OutOfElem();//out of Users
+            user.setUserID(atoi(UserId.c_str()));
+            user.setUserLogin(Login);
+            user.setUserName(Name);
+            user.setUserLastname(LastName);
+            user.setUserPassword(Password);
             users.push_back(user);
-        }
-        textFile.close();
+            }
     }
   return users;
 }
-*/
