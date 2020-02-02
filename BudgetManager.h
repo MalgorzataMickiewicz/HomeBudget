@@ -26,6 +26,7 @@ public:
     void printAllIncomes();
     void addExpense();
     void printAllExpenses();
+    bool sortByDate(Expenses* t1, Expenses* t2);
 
 };
 
