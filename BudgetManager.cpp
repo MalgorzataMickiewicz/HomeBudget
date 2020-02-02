@@ -167,7 +167,7 @@ void BudgetManager::printAllExpenses(){
     }
 }
 
-bool BudgetManager::sortByDate(Expenses& t1, Expenses& t2){
-    return t1->*getExpenseDate() < t2->*getExpenseDate();
+bool BudgetManager::sortByDate(Expenses* t1, Expenses* t2){
+    return t1.*getExpenseDate() < t2.*getExpenseDate();
 }
 

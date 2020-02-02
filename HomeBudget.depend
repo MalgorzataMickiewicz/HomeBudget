@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1580493137 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\auxiliarymethods.cpp
+1580649307 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\auxiliarymethods.cpp
 	<iostream>
 	<sstream>
 	<cstdlib>
@@ -63,7 +63,7 @@
 1580059637 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\expenses.h
 	<iostream>
 
-1580497051 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
+1580649307 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -73,7 +73,7 @@
 	"Expenses.h"
 	"AuxiliaryMethods.h"
 
-1580492584 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\auxiliarymethods.h
+1580649307 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\auxiliarymethods.h
 	<iostream>
 	<string>
 
