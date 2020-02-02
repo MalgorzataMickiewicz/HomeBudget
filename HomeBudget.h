@@ -15,6 +15,9 @@ class HomeBudget{
     BudgetManager expensesManager;
 
 public:
+     HomeBudget(string nameOfFileWithUsers)
+        : usersManager(nameOfFileWithUsers){};
+
     void registerUser();
     void printAllUsers();
     void loginUser();

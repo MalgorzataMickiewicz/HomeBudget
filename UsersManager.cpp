@@ -5,7 +5,7 @@ using namespace std;
 void UsersManager::registerUser() {
     Users user = getDateOfNewUser();
     users.push_back(user);
-    //usersFileManager.addUserToFile(user);
+    usersFileManager.addUserToFile(user);
     cout << "Konto zalozone" << endl;
     Sleep(1000);
 }

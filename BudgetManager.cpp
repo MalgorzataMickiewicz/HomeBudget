@@ -157,7 +157,7 @@ Expenses BudgetManager::getDateOfNewExpense() {
 
 void BudgetManager::printAllExpenses(){
     system("cls");
-    sort (expenses.begin(), expenses.end(), sortByDate);
+    //sort (expenses.begin(), expenses.end(), sortByDate);
     cout << "Zapisane wydatki:" << endl;
     for(int i = 0; i< expenses.size(); i++) {
         cout << expenses[i].getExpenseDate() << endl;
@@ -166,8 +166,8 @@ void BudgetManager::printAllExpenses(){
         system("Pause");
     }
 }
-
+/*
 bool BudgetManager::sortByDate(Expenses* t1, Expenses* t2){
     return t1.*getExpenseDate() < t2.*getExpenseDate();
 }
-
+*/

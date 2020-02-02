@@ -21,16 +21,11 @@ class BudgetManager {
     Expenses getDateOfNewExpense();
 
 public:
-
     void addIncome();
     void printAllIncomes();
     void addExpense();
     void printAllExpenses();
-<<<<<<< HEAD
-    bool sortByDate(Expenses* t1, Expenses* t2);
-=======
-    bool sortByDate(Expenses& t1, Expenses& t2);
->>>>>>> Balance
+    //bool sortByDate(Expenses* t1, Expenses* t2);
 
 };
 

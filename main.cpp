@@ -6,14 +6,14 @@ using namespace std;
 
 int main()
 {
-    HomeBudget homeBudget;
+    HomeBudget homeBudget("Users.txt");
 
-    //homeBudget.registerUser();
+    homeBudget.registerUser();
     //homeBudget.loginUser();
-   // homeBudget.addIncome();
+    //homeBudget.addIncome();
     //homeBudget.printAllIncomes();
-    homeBudget.addExpense();
-    homeBudget.printAllExpenses();
+    //homeBudget.addExpense();
+    //homeBudget.printAllExpenses();
 
     return 0;
 }
