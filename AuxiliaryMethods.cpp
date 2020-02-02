@@ -136,3 +136,8 @@ int AuxiliaryMethods::checkActualDate() {
     return actualDateInInt;
 }
 
+/*
+string AuxiliaryMethods::conversionIntToString(int dateInInt){
+    string test = "";
+    return test;
+}*/
