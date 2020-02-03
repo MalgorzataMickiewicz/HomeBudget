@@ -8,12 +8,14 @@ int main()
 {
     HomeBudget homeBudget("Users.txt");
 
-    homeBudget.registerUser();
-    //homeBudget.loginUser();
+    //homeBudget.registerUser();
     //homeBudget.addIncome();
+    //homeBudget.printAllUsers();
+    homeBudget.loginUser();
     //homeBudget.printAllIncomes();
     //homeBudget.addExpense();
     //homeBudget.printAllExpenses();
+    homeBudget.changePassword();
 
     return 0;
 }

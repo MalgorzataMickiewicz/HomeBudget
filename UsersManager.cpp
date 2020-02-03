@@ -81,20 +81,20 @@ void UsersManager::loginUser() {
 
     for(int i=0; i<users.size(); i++) {
         if(users[i].getUserLogin() == userLogin) {
-            for(int i=0; i<3; i++) {
-                cout << "Podaj haslo. Pozostalo prob: " << 3-i << ": ";
+            for(int j=0; j<3; j++) {
+                cout << "Podaj haslo. Pozostalo prob: " << 3-j << ": ";
                 cin >> userPassword;
                 if(users[i].getUserPassword() == userPassword) {
                     logedUserID = users[i].getUserID();
                     cout << "Zalogowales sie" << endl;
                     Sleep(1000);
-                    i = 3;
+                    j = 3;
                     counter++;
                 }
                 else if(i == 2){
                     cout << "Podales 3 razy bledne haslo. Poczekaj 3 sekundy i sprobuj ponownie" << endl;
                     Sleep(3000);
-                    i = -1;
+                    j = -1;
                     system("cls");
                 }
         }
@@ -116,6 +116,7 @@ void UsersManager::changePassword(){
 
 void UsersManager::addNewPasswordToVector(string userPassword){
     Users user;
+    int idCurrentUser = 0;
     for(int i = 0; i < users.size(); i++) {
         if(users[i].getUserID() == logedUserID) {
             users[i].setUserPassword(userPassword);
@@ -126,8 +127,8 @@ void UsersManager::addNewPasswordToVector(string userPassword){
             user.setUserLogin(users[i].getUserLogin());
             cout<<"Haslo zostalo zmienione"<<endl;
             Sleep(1000);
-            int idCurrentUser = users[i].getUserID();
-            //dodac do pliku
+            idCurrentUser = users[i].getUserID();
+            usersFileManager.addUserWithNewPasswordToFile(user, idCurrentUser);
         }
     }
 }

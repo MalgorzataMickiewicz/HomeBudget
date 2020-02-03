@@ -24,6 +24,7 @@ class UsersManager {
 public:
     UsersManager(string nameOfFileWithUsers) : usersFileManager(nameOfFileWithUsers) {
         logedUserID = 0;
+        users = usersFileManager.loadUsersFromFile();
     };
 
     void registerUser();
@@ -32,7 +33,6 @@ public:
     void loginUser();
     void changePassword();
     void addNewPasswordToVector(string userPassword);
-
 };
 
 #endif

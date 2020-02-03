@@ -50,8 +50,8 @@ vector <Users> UsersFileManager::loadUsersFromFile(){
             LastName = xml.GetData();
             xml.FindElem("Password");//looking for Password
             Password = xml.GetData();
+            xml.OutOfElem();//out of Child Elem User
             xml.OutOfElem();//out of User
-            xml.OutOfElem();//out of Users
             user.setUserID(atoi(UserId.c_str()));
             user.setUserLogin(Login);
             user.setUserName(Name);
@@ -62,3 +62,34 @@ vector <Users> UsersFileManager::loadUsersFromFile(){
     }
   return users;
 }
+
+void UsersFileManager::addUserWithNewPasswordToFile(Users user, int idCurrentUser){
+    CMarkup xml;
+    bool fileExists = xml.Load( "Users.xml" );
+    if (fileExists){
+            MCD_STR UserId;
+            MCD_STR Password;
+        while (xml.FindChildElem("User")){
+                xml.FindElem();//set on Users
+                xml.IntoElem();//into Users
+                xml.IntoElem();//into User
+                xml.FindElem("UserId");//looking for UserId
+                UserId = xml.GetData();
+                if(atoi(UserId.c_str()) == idCurrentUser){
+                    xml.FindElem("Password");
+                    xml.RemoveElem();
+                    xml.AddElem("Password", user.getUserPassword());
+                    xml.OutOfElem();
+                    xml.OutOfElem();
+                    xml.Save("Users.xml");
+            } else {
+                xml.OutOfElem();
+                xml.OutOfElem();
+                }
+            }
+        }
+        else
+        cout << "Nie udalo sie otworzyc pliku " << getNameOfFile() << " i zapisac w nim danych." << endl;
+        }
+
+

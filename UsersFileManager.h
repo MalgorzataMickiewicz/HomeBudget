@@ -21,10 +21,9 @@ public:
         : XMLFile (nameOfFile) {};
 
     void addUserToFile(Users user);
-
-   // vector <Users> loadUsersFromFile();
-//void addUserWithNewPasswordToFile();
-//int getIdOfUser();
+    vector <Users> loadUsersFromFile();
+    void addUserWithNewPasswordToFile(Users user, int idCurrentUser);
+    //int getIdOfUser();
 };
 
 #endif
