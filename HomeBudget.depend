@@ -27,7 +27,7 @@
 	<iostream>
 	<string>
 
-1580649650 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.cpp
+1580653361 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.cpp
 	<iomanip>
 	<algorithm>
 	<vector>
@@ -47,29 +47,29 @@
 
 1579543431 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomesfilemanager.cpp
 
-1580651729 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
+1580754414 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
 	"HomeBudget.h"
 	<iostream>
 
 1579548466 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\users.cpp
 	"Users.h"
 
-1580652689 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersfilemanager.cpp
+1580755462 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersfilemanager.cpp
 	"Markup.h"
 	"UsersFileManager.h"
 
-1580650656 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.cpp
+1580755393 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.cpp
 	"UsersManager.h"
 
-1580650924 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\xmlfile.cpp
+1580653361 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\xmlfile.cpp
 	"XMLFile.h"
 
-1580652028 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.h
+1580653361 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.h
 	<iostream>
 	"UsersManager.h"
 	"BudgetManager.h"
 
-1580651984 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.h
+1580751802 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -91,7 +91,7 @@
 
 1580649307 D
 
-1580651702 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
+1580653361 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -105,7 +105,7 @@
 	<iostream>
 	<string>
 
-1303067212 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\markup.cpp
+1580653361 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\markup.cpp
 	<stdio.h>
 	"Markup.h"
 	<errno.h>
@@ -113,13 +113,13 @@
 	<windows.h>
 	<mbstring.h>
 
-1303067212 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\markup.h
+1580653361 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\markup.h
 	<stdlib.h>
 	<string.h>
 	<string>
 	<afx.h>
 
-1580653311 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersfilemanager.h
+1580751664 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersfilemanager.h
 	<iostream>
 	<fstream>
 	<vector>
@@ -127,7 +127,7 @@
 	"XMLFile.h"
 	"Users.h"
 
-1580650924 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\xmlfile.h
+1580653361 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\xmlfile.h
 	<iostream>
 	<fstream>
 
