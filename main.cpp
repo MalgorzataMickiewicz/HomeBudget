@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    HomeBudget homeBudget("Users.txt");
+    HomeBudget homeBudget("Users.xml");
 
     //homeBudget.registerUser();
     //homeBudget.addIncome();

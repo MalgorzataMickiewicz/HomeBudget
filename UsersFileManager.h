@@ -13,7 +13,6 @@ using namespace std;
 
 class UsersFileManager: public XMLFile {
 
-    int lastUserID;
     int CurrentUserID;
 
 public:
@@ -23,7 +22,6 @@ public:
     void addUserToFile(Users user);
     vector <Users> loadUsersFromFile();
     void addUserWithNewPasswordToFile(Users user, int idCurrentUser);
-    //int getIdOfUser();
 };
 
 #endif

@@ -9,7 +9,7 @@ using namespace std;
 void BudgetManager::addIncome() {
     Incomes income = getDateOfNewIncome();
     incomes.push_back(income);
-    //incomesFileManager.addIncomesToFile(income);
+    incomesFileManager.addIncomeToFile(income);
     cout << "Przychod dodany" << endl;
     Sleep(1000);
 }
