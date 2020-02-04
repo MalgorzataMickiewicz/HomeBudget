@@ -18,17 +18,17 @@ void HomeBudget::changePassword() {
 }
 
 void HomeBudget::addIncome() {
-    incomesManager.addIncome();
+    budgetManager.addIncome();
 }
 
 void HomeBudget::printAllIncomes(){
-    incomesManager.printAllIncomes();
+    budgetManager.printAllIncomes();
 }
 
 void HomeBudget::addExpense() {
-    expensesManager.addExpense();
+    budgetManager.addExpense();
 }
 
 void HomeBudget::printAllExpenses(){
-    expensesManager.printAllExpenses();
+    budgetManager.printAllExpenses();
 }

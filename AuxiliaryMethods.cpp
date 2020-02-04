@@ -122,6 +122,11 @@ int AuxiliaryMethods::checkActualDate() {
     dayInString << st.wDay;
     string dayInString2 = dayInString.str();
 
+
+    if (dayInString2.length() < 2){
+        dayInString2.insert(0,"0");
+    }
+
     if (monthInString2.length() < 2){
         monthInString2.insert(0,"0");
     }

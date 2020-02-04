@@ -8,6 +8,7 @@
 
 #include "XMLFile.h"
 #include "Incomes.h"
+#include "AuxiliaryMethods.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ public:
         : XMLFile (nameOfFile) {};
 
     void addIncomeToFile(Incomes income);
-    //vector <Incomes> loadIncomesFromFile();
+    vector <Incomes> loadIncomesFromFile();
 };
 
 #endif

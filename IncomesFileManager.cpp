@@ -22,43 +22,39 @@ void IncomesFileManager::addIncomeToFile(Incomes income){
     xml.Save("Incomes.xml");
 }
 
-/*
-vector <Users> UsersFileManager::loadUsersFromFile(){
-    Users user;
-    vector <Users> users;
-    CMarkup xml;
+vector <Incomes> IncomesFileManager::loadIncomesFromFile(){
 
-    bool fileExists = xml.Load( "Users.xml" );
+    Incomes income;
+    vector <Incomes> incomes;
+    CMarkup xml;
+    int dateInInt = 0;
+    float valueInFloat = 0;
+
+    bool fileExists = xml.Load( "Incomes.xml" );
     if (fileExists){
-            MCD_STR UserId;//create string variable UserId
-            MCD_STR Login;//create string variable Login
-            MCD_STR Name;//create string variable Name
-            MCD_STR LastName;//create string variable LastName
-            MCD_STR Password;//create string variable Password
-            while (xml.FindChildElem("User")){
-            xml.FindElem();//set on Users
-            xml.IntoElem();//into Users
-            xml.IntoElem();//into User
-            xml.FindElem("UserId");//looking for UserId
-            UserId = xml.GetData();
-            xml.FindElem("Login");//looking for Login
-            Login = xml.GetData();
-            xml.FindElem("Name");//looking for Name
+            MCD_STR Date;
+            MCD_STR Value;
+            MCD_STR Name;
+            while (xml.FindChildElem("Income")){
+            xml.FindElem();
+            xml.IntoElem();
+            xml.IntoElem();
+            xml.FindElem("Date");
+            Date = xml.GetData();
+            xml.FindElem("Value");
+            Value = xml.GetData();
+            xml.FindElem("Name");
             Name = xml.GetData();
-            xml.FindElem("LastName");//looking for LastName
-            LastName = xml.GetData();
-            xml.FindElem("Password");//looking for Password
-            Password = xml.GetData();
-            xml.OutOfElem();//out of Child Elem User
-            xml.OutOfElem();//out of User
-            user.setUserID(atoi(UserId.c_str()));
-            user.setUserLogin(Login);
-            user.setUserName(Name);
-            user.setUserLastname(LastName);
-            user.setUserPassword(Password);
-            users.push_back(user);
+            xml.OutOfElem();
+            xml.OutOfElem();
+            dateInInt = AuxiliaryMethods::conversionStringToInt(Date);
+            income.setIncomeDate(dateInInt);
+            //valueInFloat = AuxiliaryMethods::conversionStringToFloat(Value);
+            //income.setIncomeValue();
+            income.setIncomeName(Name);
+            incomes.push_back(income);
             }
     }
-  return users;
+  return incomes;
 }
-*/
+

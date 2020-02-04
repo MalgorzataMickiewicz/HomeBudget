@@ -11,12 +11,11 @@ using namespace std;
 class HomeBudget{
 
     UsersManager usersManager;
-    BudgetManager incomesManager;
-    BudgetManager expensesManager;
+    BudgetManager budgetManager;
 
 public:
-     HomeBudget(string nameOfFileWithUsers)
-        : usersManager(nameOfFileWithUsers){};
+     HomeBudget(string nameOfFileWithUsers, string nameOfFileWithIncomes)
+        : usersManager(nameOfFileWithUsers), budgetManager(nameOfFileWithIncomes){};
 
     void registerUser();
     void printAllUsers();

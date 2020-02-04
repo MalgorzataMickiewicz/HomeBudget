@@ -11,7 +11,6 @@
 #include "Expenses.h"
 #include "AuxiliaryMethods.h"
 #include "IncomesFileManager.h"
-#include "ExpensesFileManager.h"
 
 using namespace std;
 
@@ -19,11 +18,16 @@ class BudgetManager {
 
     vector <Incomes> incomes;
     vector <Expenses> expenses;
+    string nameOfFileWithIncomes;
     IncomesFileManager incomesFileManager;
+
     Incomes getDateOfNewIncome();
     Expenses getDateOfNewExpense();
 
 public:
+    BudgetManager(string nameOfFileWithIncomes) : incomesFileManager(nameOfFileWithIncomes)
+    {incomes = incomesFileManager.loadIncomesFromFile();
+    };
 
     void addIncome();
     void printAllIncomes();

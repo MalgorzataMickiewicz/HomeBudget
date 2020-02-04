@@ -20,7 +20,7 @@ Incomes BudgetManager::getDateOfNewIncome() {
     string dateOfIncomeInString = "";
     int dateOfIncome = 0;
     int choice = 0;
-
+    system("cls");
     cout << "----------"<< "DODANIE PRZYCHODU" << "----------" << endl;
     cout << "Czy przychod jest z dzisiaj?" << endl;
     cout << "1. TAK" << endl;
@@ -84,7 +84,6 @@ void BudgetManager::printAllIncomes(){
         cout << incomes[i].getIncomeName() << endl;
         system("Pause");
     }
-
 }
 
 void BudgetManager::addExpense() {
