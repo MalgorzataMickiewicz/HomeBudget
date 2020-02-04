@@ -6,16 +6,17 @@ using namespace std;
 
 int main()
 {
-    HomeBudget homeBudget("Users.txt");
+    HomeBudget homeBudget("Users.xml", "Incomes.xml");
 
     //homeBudget.registerUser();
     //homeBudget.addIncome();
     //homeBudget.printAllUsers();
     homeBudget.loginUser();
-    //homeBudget.printAllIncomes();
+    //homeBudget.addIncome();
+    homeBudget.printAllIncomes();
     //homeBudget.addExpense();
     //homeBudget.printAllExpenses();
-    homeBudget.changePassword();
+    //homeBudget.changePassword();
 
     return 0;
 }

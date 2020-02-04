@@ -13,6 +13,7 @@ public:
     int static checkActualDate();
     bool static checkMonth(int month, int year, int day);
     bool static checkYear(int month, int year, int day);
+    float static conversionStringToFloat(string valueInString);
     //string static conversionIntToString(int date)
 };
 

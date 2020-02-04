@@ -91,7 +91,7 @@ void UsersManager::loginUser() {
                     j = 3;
                     counter++;
                 }
-                else if(i == 2){
+                else if(j == 2){
                     cout << "Podales 3 razy bledne haslo. Poczekaj 3 sekundy i sprobuj ponownie" << endl;
                     Sleep(3000);
                     j = -1;
