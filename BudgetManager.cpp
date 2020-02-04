@@ -11,7 +11,7 @@ void BudgetManager::addIncome() {
     incomes.push_back(income);
     incomesFileManager.addIncomeToFile(income);
     cout << "Przychod dodany" << endl;
-    Sleep(1000);
+    system("Pause");
 }
 
 Incomes BudgetManager::getDateOfNewIncome() {

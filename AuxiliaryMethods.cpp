@@ -56,6 +56,23 @@ float AuxiliaryMethods::conversionStringToFloat(string valueInString){
     return valueInFloat;
 }
 
+string AuxiliaryMethods::conversionIntToStringSeparatedDash(int dateInInt){
+
+    string dateSeparatedDash = "";
+
+    ostringstream changeDateFormat;
+    changeDateFormat << dateInInt;
+    string dateInString = changeDateFormat.str();
+
+    dateSeparatedDash = dateInString.substr(0,4);
+    dateSeparatedDash.insert(4,"-");
+    dateSeparatedDash.insert(5,dateInString.substr(4,2));
+    dateSeparatedDash.insert(7,"-");
+    dateSeparatedDash.insert(8,dateInString.substr(6,2));
+
+    return dateSeparatedDash;
+}
+
 bool AuxiliaryMethods::checkMonth(int month, int year, int day){
     if (month == 4 || month == 6 || month == 9 || month == 11){
         if(day< 31 && day > 0){
@@ -146,9 +163,3 @@ int AuxiliaryMethods::checkActualDate() {
 
     return actualDateInInt;
 }
-
-/*
-string AuxiliaryMethods::conversionIntToString(int dateInInt){
-    string test = "";
-    return test;
-}*/

@@ -7,16 +7,18 @@ void IncomesFileManager::addIncomeToFile(Incomes income){
 
     CMarkup xml;
     bool fileExists = xml.Load( "Incomes.xml" );
+    string dateSeparatedDash;
 
     if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Incomes");
     }
-    xml.FindElem();//set on Incomes
-    xml.IntoElem();//into Incomes
-    xml.AddElem("Income");//add Income element
-    xml.IntoElem();//into Income
-    xml.AddElem("Date", income.getIncomeDate());//Add elemets lke Id, Login, Password, etc.
+    xml.FindElem();
+    xml.IntoElem();
+    xml.AddElem("Income");
+    xml.IntoElem();
+    dateSeparatedDash = AuxiliaryMethods::conversionIntToStringSeparatedDash(income.getIncomeDate());
+    xml.AddElem("Date", dateSeparatedDash);
     xml.AddElem("Value", income.getIncomeValue());
     xml.AddElem("Name", income.getIncomeName());
     xml.Save("Incomes.xml");
