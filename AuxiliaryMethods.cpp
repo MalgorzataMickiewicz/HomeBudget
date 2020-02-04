@@ -50,6 +50,12 @@ int AuxiliaryMethods::conversionStringToInt(string dateInString) {
     return dateInInt;
 }
 
+float AuxiliaryMethods::conversionStringToFloat(string valueInString){
+
+    float valueInFloat = atof(valueInString.c_str());
+    return valueInFloat;
+}
+
 bool AuxiliaryMethods::checkMonth(int month, int year, int day){
     if (month == 4 || month == 6 || month == 9 || month == 11){
         if(day< 31 && day > 0){

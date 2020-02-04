@@ -49,8 +49,8 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(){
             xml.OutOfElem();
             dateInInt = AuxiliaryMethods::conversionStringToInt(Date);
             income.setIncomeDate(dateInInt);
-            //valueInFloat = AuxiliaryMethods::conversionStringToFloat(Value);
-            //income.setIncomeValue();
+            valueInFloat = AuxiliaryMethods::conversionStringToFloat(Value);
+            income.setIncomeValue(valueInFloat);
             income.setIncomeName(Name);
             incomes.push_back(income);
             }
