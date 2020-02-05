@@ -125,6 +125,13 @@ bool AuxiliaryMethods::checkYear(int month, int year, int day){
     }
 }
 
+string AuxiliaryMethods::conversionIntToString(int number){
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
+
 int AuxiliaryMethods::checkActualDate() {
 
     string actualDateInString = "";

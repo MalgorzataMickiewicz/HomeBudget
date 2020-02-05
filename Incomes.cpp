@@ -10,6 +10,9 @@ void Incomes::setIncomeValue(float newIncomeValue) {
 void Incomes::setIncomeName(string newIncomeName) {
     nameOfIncome=newIncomeName;
 }
+void Incomes::setLoggedUserID(int newLoggedUserID) {
+    LOGGED_USER_ID=newLoggedUserID;
+}
 
 //Getter
 int Incomes::getIncomeDate() {
@@ -20,4 +23,7 @@ float Incomes::getIncomeValue() {
 }
 string Incomes::getIncomeName() {
     return nameOfIncome;
+}
+int Incomes::getUserID() {
+    return LOGGED_USER_ID;
 }

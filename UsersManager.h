@@ -14,7 +14,7 @@ using namespace std;
 
 class UsersManager {
 
-    int logedUserID;
+    int loggedUserID;
     vector <Users> users;
     UsersFileManager usersFileManager;
     Users getDateOfNewUser();
@@ -23,7 +23,7 @@ class UsersManager {
 
 public:
     UsersManager(string nameOfFileWithUsers) : usersFileManager(nameOfFileWithUsers) {
-        logedUserID = 0;
+        loggedUserID = 0;
         users = usersFileManager.loadUsersFromFile();
     };
 
@@ -31,6 +31,8 @@ public:
     int getIDNewUser();
     void printAllUsers();
     void loginUser();
+    bool ifUserIsLogged();
+    int giveIdLoggedUser();
     void changePassword();
     void addNewPasswordToVector(string userPassword);
 };

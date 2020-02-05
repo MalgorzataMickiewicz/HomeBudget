@@ -85,7 +85,7 @@ void UsersManager::loginUser() {
                 cout << "Podaj haslo. Pozostalo prob: " << 3-j << ": ";
                 cin >> userPassword;
                 if(users[i].getUserPassword() == userPassword) {
-                    logedUserID = users[i].getUserID();
+                    loggedUserID = users[i].getUserID();
                     cout << "Zalogowales sie" << endl;
                     Sleep(1000);
                     j = 3;
@@ -106,6 +106,19 @@ void UsersManager::loginUser() {
     }
 }
 
+bool UsersManager::ifUserIsLogged(){
+    if(loggedUserID > 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+int UsersManager::giveIdLoggedUser(){
+    return loggedUserID;
+}
+
 void UsersManager::changePassword(){
     system("cls");
     string userPassword;
@@ -118,10 +131,10 @@ void UsersManager::addNewPasswordToVector(string userPassword){
     Users user;
     int idCurrentUser = 0;
     for(int i = 0; i < users.size(); i++) {
-        if(users[i].getUserID() == logedUserID) {
+        if(users[i].getUserID() == loggedUserID) {
             users[i].setUserPassword(userPassword);
             user.setUserPassword(userPassword);
-            user.setUserID(logedUserID);
+            user.setUserID(loggedUserID);
             user.setUserName(users[i].getUserName());
             user.setUserLastname(users[i].getUserLastname());
             user.setUserLogin(users[i].getUserLogin());

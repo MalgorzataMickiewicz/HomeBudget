@@ -11,6 +11,14 @@ void HomeBudget::printAllUsers() {
 
 void HomeBudget::loginUser() {
     usersManager.loginUser();
+    if(usersManager.ifUserIsLogged()){
+        budgetManager = new BudgetManager(NAME_OF_FILE_WITH_INCOMES, usersManager.giveIdLoggedUser());
+    }
+}
+
+bool HomeBudget::ifUserIsLogged(){
+    if(usersManager.ifUserIsLogged()){
+    }
 }
 
 void HomeBudget::changePassword() {

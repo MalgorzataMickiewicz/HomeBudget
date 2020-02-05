@@ -28,6 +28,7 @@ public:
     void registerUser();
     void printAllUsers();
     void loginUser();
+    bool ifUserIsLogged();
     void changePassword();
     void addNewPasswordToVector();
     void addIncome();

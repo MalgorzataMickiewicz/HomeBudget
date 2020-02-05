@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Incomes>
-<Income>
-<Date>2020-02-04</Date>
-<Value>100</Value>
-<Name>TEST</Name>
-</Income>
-<Income>
-<Date>2020-02-04</Date>
-<Value>400</Value>
-<Name>Test-nowa</Name>
-</Income>
-</Incomes>
+<incomes>
+<income>
+<userId>8589180</userId>
+<date>2020-02-05</date>
+<value>100</value>
+<name>Testowa</name>
+</income>
+</incomes>
