@@ -18,15 +18,17 @@ class BudgetManager {
 
     vector <Incomes> incomes;
     vector <Expenses> expenses;
-    string nameOfFileWithIncomes;
+    //string nameOfFileWithIncomes;
     IncomesFileManager incomesFileManager;
+    const int LOGGED_USER_ID;
 
     Incomes getDateOfNewIncome();
     Expenses getDateOfNewExpense();
 
 public:
-    BudgetManager(string nameOfFileWithIncomes) : incomesFileManager(nameOfFileWithIncomes)
-    {incomes = incomesFileManager.loadIncomesFromFile();
+    BudgetManager(string nameOfFile, int loggedUserID)
+        : incomesFileManager(nameOfFile), LOGGED_USER_ID(loggedUserID){
+    incomes = incomesFileManager.loadIncomesFromFile(LOGGED_USER_ID);
     };
 
     void addIncome();

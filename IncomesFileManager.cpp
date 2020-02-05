@@ -24,7 +24,7 @@ void IncomesFileManager::addIncomeToFile(Incomes income){
     xml.Save("Incomes.xml");
 }
 
-vector <Incomes> IncomesFileManager::loadIncomesFromFile(){
+vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
 
     Incomes income;
     vector <Incomes> incomes;
