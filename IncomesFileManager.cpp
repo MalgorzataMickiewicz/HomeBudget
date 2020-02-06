@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void IncomesFileManager::addIncomeToFile(Incomes income){
+void IncomesFileManager::addIncomeToFile(Incomes income) {
 
     CMarkup xml;
     bool fileExists = xml.Load( "incomes.xml" );
@@ -26,7 +26,7 @@ void IncomesFileManager::addIncomeToFile(Incomes income){
     xml.Save("incomes.xml");
 }
 
-vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
+vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID) {
 
     Incomes income;
     vector <Incomes> incomes;
@@ -35,16 +35,15 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
     float valueInFloat = 0;
     int userIdInInt = 0;
     int incomeIdInInt = 0;
-    string dataOfLastIncome = "";
 
     bool fileExists = xml.Load( "incomes.xml" );
-    if (fileExists){
-            MCD_STR userId;
-            MCD_STR incomeId;
-            MCD_STR date;
-            MCD_STR value;
-            MCD_STR name;
-            while (xml.FindChildElem("income")){
+    if (fileExists) {
+        MCD_STR userId;
+        MCD_STR incomeId;
+        MCD_STR date;
+        MCD_STR value;
+        MCD_STR name;
+        while (xml.FindChildElem("income")) {
             xml.FindElem();
             xml.IntoElem();
             xml.IntoElem();
@@ -72,10 +71,10 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
             if(loggedUserID == userIdInInt) {
                 incomes.push_back(income);
             }
-                idLastIncome = incomeIdInInt;
-            }
+            idLastIncome = incomeIdInInt;
+        }
     }
-  return incomes;
+    return incomes;
 }
 
 int IncomesFileManager::getIdOfLastIncome() {

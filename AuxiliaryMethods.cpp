@@ -39,30 +39,29 @@ int AuxiliaryMethods::conversionStringToIntDate(string dateInString) {
     istringstream changeYearFormat(yearInString);
     changeYearFormat >> yearInInt;
 
-    if(checkMonth(monthInInt, yearInInt, dayInInt) == false){
+    if(checkMonth(monthInInt, yearInInt, dayInInt) == false) {
         cout << "Podales bledna date" << endl;
         return 0;
-    }
-    else if(checkYear(monthInInt, yearInInt, dayInInt) == false){
+    } else if(checkYear(monthInInt, yearInInt, dayInInt) == false) {
         cout << "Wprowadziles zbyt stara date! Zbieramy tylko dane z XI wieku" << endl;
         return 0;
     }
     return dateInInt;
 }
 
-float AuxiliaryMethods::conversionStringToFloat(string valueInString){
+float AuxiliaryMethods::conversionStringToFloat(string valueInString) {
 
     float valueInFloat = atof(valueInString.c_str());
     return valueInFloat;
 }
 
-int AuxiliaryMethods::conversionStringToInt(string valueInString){
+int AuxiliaryMethods::conversionStringToInt(string valueInString) {
 
     int valueInInt = atoi(valueInString.c_str());
     return valueInInt;
 }
 
-string AuxiliaryMethods::conversionIntToStringSeparatedDash(int dateInInt){
+string AuxiliaryMethods::conversionIntToStringSeparatedDash(int dateInInt) {
 
     string dateSeparatedDash = "";
 
@@ -79,59 +78,50 @@ string AuxiliaryMethods::conversionIntToStringSeparatedDash(int dateInInt){
     return dateSeparatedDash;
 }
 
-bool AuxiliaryMethods::checkMonth(int month, int year, int day){
-    if (month == 4 || month == 6 || month == 9 || month == 11){
-        if(day< 31 && day > 0){
+bool AuxiliaryMethods::checkMonth(int month, int year, int day) {
+    if (month == 4 || month == 6 || month == 9 || month == 11) {
+        if(day< 31 && day > 0) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
-    }
-    else if (month == 2){
+    } else if (month == 2) {
 
         bool leapyear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-        if (leapyear == 0){
-            if(day < 29 && day > 0){
+        if (leapyear == 0) {
+            if(day < 29 && day > 0) {
                 return true;
+            } else {
+                return false;
             }
-                else{
-                    return false;
-                }
+        } else {
+            if(day < 30 && day > 0) {
+                return true;
+            } else {
+                return false;
             }
-        else{
-        if(day < 30 && day > 0){
+        }
+    } else if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+
+        if(day < 32 && day > 0) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
-        }
-    }
-    else if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12){
-
-        if(day < 32 && day > 0){
-        return true;
-        }
-        else{
-            return false;
-        }
-    }
-    else{
+    } else {
         return false;
     }
-    }
+}
 
-bool AuxiliaryMethods::checkYear(int month, int year, int day){
-    if(year < 2000){
+bool AuxiliaryMethods::checkYear(int month, int year, int day) {
+    if(year < 2000) {
         return false;
-    }
-    else{
+    } else {
         return true;
     }
 }
 
-string AuxiliaryMethods::conversionIntToString(int number){
+string AuxiliaryMethods::conversionIntToString(int number) {
     ostringstream ss;
     ss << number;
     string str = ss.str();
@@ -159,11 +149,11 @@ int AuxiliaryMethods::checkActualDate() {
     string dayInString2 = dayInString.str();
 
 
-    if (dayInString2.length() < 2){
+    if (dayInString2.length() < 2) {
         dayInString2.insert(0,"0");
     }
 
-    if (monthInString2.length() < 2){
+    if (monthInString2.length() < 2) {
         monthInString2.insert(0,"0");
     }
 
