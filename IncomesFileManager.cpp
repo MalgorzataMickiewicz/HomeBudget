@@ -18,6 +18,7 @@ void IncomesFileManager::addIncomeToFile(Incomes income){
     xml.AddElem("income");
     xml.IntoElem();
     dateSeparatedDash = AuxiliaryMethods::conversionIntToStringSeparatedDash(income.getIncomeDate());
+    xml.AddElem("incomeId", AuxiliaryMethods::conversionIntToString(income.getIncomeID()));
     xml.AddElem("userId", AuxiliaryMethods::conversionIntToString(income.getUserID()));
     xml.AddElem("date", dateSeparatedDash);
     xml.AddElem("value", income.getIncomeValue());
@@ -33,6 +34,8 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
     int dateInInt = 0;
     float valueInFloat = 0;
     int userIdInInt = 0;
+    int incomeIdInInt = 0;
+    string dataOfLastIncome = "";
 
     bool fileExists = xml.Load( "incomes.xml" );
     if (fileExists){
@@ -45,6 +48,8 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
             xml.FindElem();
             xml.IntoElem();
             xml.IntoElem();
+            xml.FindElem("incomeId");
+            incomeId = xml.GetData();
             xml.FindElem("userId");
             userId = xml.GetData();
             xml.FindElem("date");
@@ -55,6 +60,8 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
             name = xml.GetData();
             xml.OutOfElem();
             xml.OutOfElem();
+            incomeIdInInt = AuxiliaryMethods::conversionStringToInt(incomeId);
+            income.setIncomeID(incomeIdInInt);
             userIdInInt = AuxiliaryMethods::conversionStringToInt(userId);
             income.setLoggedUserID(userIdInInt);
             dateInInt = AuxiliaryMethods::conversionStringToIntDate(date);
@@ -65,8 +72,12 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
             if(loggedUserID == userIdInInt) {
                 incomes.push_back(income);
             }
+                idLastIncome = incomeIdInInt;
             }
     }
   return incomes;
 }
 
+int IncomesFileManager::getIdOfLastIncome() {
+    return idLastIncome;
+}

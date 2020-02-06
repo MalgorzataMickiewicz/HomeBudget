@@ -1,6 +1,9 @@
 #include "Incomes.h"
 
 //Setter
+void Incomes::setIncomeID(int newIncomeID){
+    incomeID = newIncomeID;
+}
 void Incomes::setIncomeDate(int newIncomeDate) {
     dateOfIncome = newIncomeDate;
 }
@@ -15,6 +18,9 @@ void Incomes::setLoggedUserID(int newLoggedUserID) {
 }
 
 //Getter
+int Incomes::getIncomeID(){
+    return incomeID;
+}
 int Incomes::getIncomeDate() {
     return dateOfIncome;
 }

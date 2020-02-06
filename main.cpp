@@ -13,7 +13,7 @@ int main()
     //homeBudget.printAllUsers();
     homeBudget.loginUser();
     //homeBudget.printAllUsers();
-    //homeBudget.addIncome();
+    homeBudget.addIncome();
     homeBudget.printAllIncomes();
     //homeBudget.addExpense();
     //homeBudget.printAllExpenses();

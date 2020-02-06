@@ -27,7 +27,7 @@
 	<iostream>
 	<string>
 
-1581003944 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.cpp
+1581009581 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.cpp
 	<iomanip>
 	<algorithm>
 	<vector>
@@ -42,14 +42,14 @@
 	"HomeBudget.h"
 	"UsersManager.h"
 
-1581004444 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomes.cpp
+1581009038 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomes.cpp
 	"Incomes.h"
 
-1581004595 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomesfilemanager.cpp
+1581009753 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomesfilemanager.cpp
 	"Markup.h"
 	"IncomesFileManager.h"
 
-1581004487 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
+1581005367 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
 	"HomeBudget.h"
 	<iostream>
 
@@ -85,7 +85,7 @@
 
 1579634520 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\filesmanager.cpp
 
-1581003059 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomes.h
+1581004765 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomes.h
 	<iostream>
 	<cstdlib>
 
@@ -94,7 +94,7 @@
 
 1580649307 D
 
-1581003588 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
+1581009324 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -135,7 +135,7 @@
 	<iostream>
 	<fstream>
 
-1580929999 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomesfilemanager.h
+1581006568 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomesfilemanager.h
 	<iostream>
 	<fstream>
 	<vector>
