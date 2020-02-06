@@ -12,11 +12,12 @@ int main() {
     //homeBudget.printAllUsers();
     homeBudget.loginUser();
     //homeBudget.printAllUsers();
+    //homeBudget.addIncome();
     homeBudget.addIncome();
-    //homeBudget.printAllIncomes();
+    homeBudget.printAllIncomes();
     //homeBudget.addExpense();
-    //homeBudget.addExpense();
-    //homeBudget.printAllExpenses();
+    homeBudget.addExpense();
+    homeBudget.printAllExpenses();
     //homeBudget.changePassword();
 
     return 0;

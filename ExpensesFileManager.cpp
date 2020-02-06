@@ -24,6 +24,7 @@ void ExpensesFileManager::addExpenseToFile(Expenses expense) {
     xml.AddElem("value", expense.getExpenseValue());
     xml.AddElem("name", expense.getExpenseName());
     xml.Save("expenses.xml");
+    idLastExpense++;
 }
 
 vector <Expenses> ExpensesFileManager::loadExpensesFromFile(int loggedUserID) {

@@ -22,7 +22,7 @@ Incomes BudgetManager::getDateOfNewIncome() {
     int choice = 0;
 
     income.setLoggedUserID(LOGGED_USER_ID);
-    income.setIncomeID(incomesFileManager.getIdOfLastIncome() + 1);
+    income.setIncomeID((incomesFileManager.getIdOfLastIncome()) + 1);
 
     system("cls");
     cout << "----------"<< "DODANIE PRZYCHODU" << "----------" << endl;
