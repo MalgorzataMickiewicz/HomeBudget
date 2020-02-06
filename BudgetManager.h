@@ -16,17 +16,18 @@ using namespace std;
 
 class BudgetManager {
 
+    const int LOGGED_USER_ID;
     vector <Incomes> incomes;
     vector <Expenses> expenses;
-    string nameOfFileWithIncomes;
     IncomesFileManager incomesFileManager;
 
     Incomes getDateOfNewIncome();
     Expenses getDateOfNewExpense();
 
 public:
-    BudgetManager(string nameOfFileWithIncomes) : incomesFileManager(nameOfFileWithIncomes)
-    {incomes = incomesFileManager.loadIncomesFromFile();
+    BudgetManager(string nameOfFile, int loggedUserID)
+        : incomesFileManager(nameOfFile), LOGGED_USER_ID(loggedUserID){
+    incomes = incomesFileManager.loadIncomesFromFile(LOGGED_USER_ID);
     };
 
     void addIncome();

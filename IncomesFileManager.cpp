@@ -6,57 +6,78 @@ using namespace std;
 void IncomesFileManager::addIncomeToFile(Incomes income){
 
     CMarkup xml;
-    bool fileExists = xml.Load( "Incomes.xml" );
+    bool fileExists = xml.Load( "incomes.xml" );
     string dateSeparatedDash;
 
     if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-        xml.AddElem("Incomes");
+        xml.AddElem("incomes");
     }
     xml.FindElem();
     xml.IntoElem();
-    xml.AddElem("Income");
+    xml.AddElem("income");
     xml.IntoElem();
     dateSeparatedDash = AuxiliaryMethods::conversionIntToStringSeparatedDash(income.getIncomeDate());
-    xml.AddElem("Date", dateSeparatedDash);
-    xml.AddElem("Value", income.getIncomeValue());
-    xml.AddElem("Name", income.getIncomeName());
-    xml.Save("Incomes.xml");
+    xml.AddElem("incomeId", AuxiliaryMethods::conversionIntToString(income.getIncomeID()));
+    xml.AddElem("userId", AuxiliaryMethods::conversionIntToString(income.getUserID()));
+    xml.AddElem("date", dateSeparatedDash);
+    xml.AddElem("value", income.getIncomeValue());
+    xml.AddElem("name", income.getIncomeName());
+    xml.Save("incomes.xml");
 }
 
-vector <Incomes> IncomesFileManager::loadIncomesFromFile(){
+vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
 
     Incomes income;
     vector <Incomes> incomes;
     CMarkup xml;
     int dateInInt = 0;
     float valueInFloat = 0;
+    int userIdInInt = 0;
+    int incomeIdInInt = 0;
+    string dataOfLastIncome = "";
 
-    bool fileExists = xml.Load( "Incomes.xml" );
+    bool fileExists = xml.Load( "incomes.xml" );
     if (fileExists){
-            MCD_STR Date;
-            MCD_STR Value;
-            MCD_STR Name;
-            while (xml.FindChildElem("Income")){
+            MCD_STR userId;
+            MCD_STR incomeId;
+            MCD_STR date;
+            MCD_STR value;
+            MCD_STR name;
+            while (xml.FindChildElem("income")){
             xml.FindElem();
             xml.IntoElem();
             xml.IntoElem();
-            xml.FindElem("Date");
-            Date = xml.GetData();
-            xml.FindElem("Value");
-            Value = xml.GetData();
-            xml.FindElem("Name");
-            Name = xml.GetData();
+            xml.FindElem("incomeId");
+            incomeId = xml.GetData();
+            xml.FindElem("userId");
+            userId = xml.GetData();
+            xml.FindElem("date");
+            date = xml.GetData();
+            xml.FindElem("value");
+            value = xml.GetData();
+            xml.FindElem("name");
+            name = xml.GetData();
             xml.OutOfElem();
             xml.OutOfElem();
-            dateInInt = AuxiliaryMethods::conversionStringToInt(Date);
+            incomeIdInInt = AuxiliaryMethods::conversionStringToInt(incomeId);
+            income.setIncomeID(incomeIdInInt);
+            userIdInInt = AuxiliaryMethods::conversionStringToInt(userId);
+            income.setLoggedUserID(userIdInInt);
+            dateInInt = AuxiliaryMethods::conversionStringToIntDate(date);
             income.setIncomeDate(dateInInt);
-            valueInFloat = AuxiliaryMethods::conversionStringToFloat(Value);
+            valueInFloat = AuxiliaryMethods::conversionStringToFloat(value);
             income.setIncomeValue(valueInFloat);
-            income.setIncomeName(Name);
-            incomes.push_back(income);
+            income.setIncomeName(name);
+            if(loggedUserID == userIdInInt) {
+                incomes.push_back(income);
+            }
+                idLastIncome = incomeIdInInt;
             }
     }
   return incomes;
 }
 
+int IncomesFileManager::getIdOfLastIncome() {
+    return idLastIncome;
+}

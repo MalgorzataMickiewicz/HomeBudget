@@ -20,6 +20,10 @@ Incomes BudgetManager::getDateOfNewIncome() {
     string dateOfIncomeInString = "";
     int dateOfIncome = 0;
     int choice = 0;
+
+    income.setLoggedUserID(LOGGED_USER_ID);
+    income.setIncomeID(incomesFileManager.getIdOfLastIncome() + 1);
+
     system("cls");
     cout << "----------"<< "DODANIE PRZYCHODU" << "----------" << endl;
     cout << "Czy przychod jest z dzisiaj?" << endl;
@@ -32,9 +36,10 @@ Incomes BudgetManager::getDateOfNewIncome() {
     }
     else{
         do{
+        cout << "----------------------------------------" << endl;
         cout << "Podaj date przychodu w formacie: YYYY-MM-DD: ";
         cin >> dateOfIncomeInString;
-        dateOfIncome = AuxiliaryMethods::conversionStringToInt(dateOfIncomeInString);
+        dateOfIncome = AuxiliaryMethods::conversionStringToIntDate(dateOfIncomeInString);
         if(dateOfIncome == 0){
                 system("Pause");
                 system("cls");
@@ -43,12 +48,12 @@ Incomes BudgetManager::getDateOfNewIncome() {
      }while(dateOfIncome == 0);
      income.setIncomeDate(dateOfIncome);
     }
-
     float valueOfIncome = 0;
     int goodValue = 1;
 
      do{
         goodValue = 1;
+        cout << "----------------------------------------" << endl;
         cout << "Podaj wartosc przychodu, np. 100.22: ";
         //JAK SIE WPROWADZI NP. 200.c to przechodzi!
         //DODAC ZAMIANE , na .
@@ -66,22 +71,24 @@ Incomes BudgetManager::getDateOfNewIncome() {
     income.setIncomeValue(valueOfIncome);
 
     string nameOfIncome = "";
+    cout << "----------------------------------------" << endl;
     cout << "Podaj nazwe przychodu: ";
     cin.sync();
     getline(cin,nameOfIncome);
     income.setIncomeName(nameOfIncome);
-
     return income;
 }
 
 void BudgetManager::printAllIncomes(){
-    cout << "PRZYCHODY Sortowanie od najstarszych: ";
     system("cls");
+    cout << "----------"<< "PRZYCHODY" << "----------" << endl;
 
     for(int i = 0; i< incomes.size(); i++) {
-        cout << incomes[i].getIncomeDate() << endl;
-        cout << incomes[i].getIncomeValue() << endl;
-        cout << incomes[i].getIncomeName() << endl;
+        cout << "Income ID: " << incomes[i].getIncomeID() << endl;
+        cout << "User ID: " << incomes[i].getUserID() << endl;
+        cout << "Income Date: " << incomes[i].getIncomeDate() << endl;
+        cout << "Income Value: " << incomes[i].getIncomeValue() << endl;
+        cout << "Income Name: " << incomes[i].getIncomeName() << endl;
         system("Pause");
     }
 }

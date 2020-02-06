@@ -13,8 +13,6 @@ using namespace std;
 
 class UsersFileManager: public XMLFile {
 
-    int CurrentUserID;
-
 public:
     UsersFileManager(string nameOfFile)
         : XMLFile (nameOfFile) {};

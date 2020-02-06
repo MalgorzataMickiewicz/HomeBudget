@@ -14,14 +14,17 @@ using namespace std;
 
 class IncomesFileManager: public XMLFile {
 
-    int CurrentUserID;
+    int idLastIncome;
 
 public:
     IncomesFileManager(string nameOfFile)
-        : XMLFile (nameOfFile) {};
+        : XMLFile (nameOfFile) {
+        idLastIncome = 0;
+        };
 
     void addIncomeToFile(Incomes income);
-    vector <Incomes> loadIncomesFromFile();
+    vector <Incomes> loadIncomesFromFile(int idLogedUser);
+    int getIdOfLastIncome();
 };
 
 #endif

@@ -1,17 +1,26 @@
 #include "Incomes.h"
 
 //Setter
+void Incomes::setIncomeID(int newIncomeID){
+    incomeID = newIncomeID;
+}
 void Incomes::setIncomeDate(int newIncomeDate) {
-    dateOfIncome=newIncomeDate;
+    dateOfIncome = newIncomeDate;
 }
 void Incomes::setIncomeValue(float newIncomeValue) {
-    valueOfIncome=newIncomeValue;
+    valueOfIncome = newIncomeValue;
 }
 void Incomes::setIncomeName(string newIncomeName) {
-    nameOfIncome=newIncomeName;
+    nameOfIncome = newIncomeName;
+}
+void Incomes::setLoggedUserID(int newLoggedUserID) {
+    LOGGED_USER_ID = newLoggedUserID;
 }
 
 //Getter
+int Incomes::getIncomeID(){
+    return incomeID;
+}
 int Incomes::getIncomeDate() {
     return dateOfIncome;
 }
@@ -20,4 +29,7 @@ float Incomes::getIncomeValue() {
 }
 string Incomes::getIncomeName() {
     return nameOfIncome;
+}
+int Incomes::getUserID() {
+    return LOGGED_USER_ID;
 }
