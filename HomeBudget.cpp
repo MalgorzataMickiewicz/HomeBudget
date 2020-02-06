@@ -1,7 +1,7 @@
 #include "HomeBudget.h"
 #include "UsersManager.h"
 
-void HomeBudget::registerUser(){
+void HomeBudget::registerUser() {
     usersManager.registerUser();
 }
 
@@ -11,17 +11,17 @@ void HomeBudget::printAllUsers() {
 
 void HomeBudget::loginUser() {
     usersManager.loginUser();
-    if(usersManager.ifUserIsLogged()){
-        budgetManager = new BudgetManager(NAME_OF_FILE_WITH_INCOMES, usersManager.giveIdLoggedUser());
+    if(usersManager.ifUserIsLogged()) {
+        budgetManager = new BudgetManager(NAME_OF_FILE_WITH_INCOMES, NAME_OF_FILE_WITH_EXPENSES, usersManager.giveIdLoggedUser());
     }
 }
 
-bool HomeBudget::ifUserIsLogged(){
-    if(usersManager.ifUserIsLogged()){
+bool HomeBudget::ifUserIsLogged() {
+    if(usersManager.ifUserIsLogged()) {
     }
 }
 
-void HomeBudget::logoutUser(){
+void HomeBudget::logoutUser() {
     usersManager.logoutUser();
     delete budgetManager;
     budgetManager = NULL;
@@ -35,7 +35,7 @@ void HomeBudget::addIncome() {
     budgetManager->addIncome();
 }
 
-void HomeBudget::printAllIncomes(){
+void HomeBudget::printAllIncomes() {
     budgetManager->printAllIncomes();
 }
 
@@ -43,6 +43,6 @@ void HomeBudget::addExpense() {
     budgetManager->addExpense();
 }
 
-void HomeBudget::printAllExpenses(){
+void HomeBudget::printAllExpenses() {
     budgetManager->printAllExpenses();
 }

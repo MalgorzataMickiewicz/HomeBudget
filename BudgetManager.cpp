@@ -22,7 +22,7 @@ Incomes BudgetManager::getDateOfNewIncome() {
     int choice = 0;
 
     income.setLoggedUserID(LOGGED_USER_ID);
-    income.setIncomeID(incomesFileManager.getIdOfLastIncome() + 1);
+    income.setIncomeID((incomesFileManager.getIdOfLastIncome()) + 1);
 
     system("cls");
     cout << "----------"<< "DODANIE PRZYCHODU" << "----------" << endl;
@@ -30,43 +30,42 @@ Incomes BudgetManager::getDateOfNewIncome() {
     cout << "1. TAK" << endl;
     cout << "2. NIE" << endl;
     cin >> choice;
-    if (choice == 1){
+    if (choice == 1) {
         dateOfIncome = AuxiliaryMethods::checkActualDate();
         income.setIncomeDate(dateOfIncome);
-    }
-    else{
-        do{
-        cout << "----------------------------------------" << endl;
-        cout << "Podaj date przychodu w formacie: YYYY-MM-DD: ";
-        cin >> dateOfIncomeInString;
-        dateOfIncome = AuxiliaryMethods::conversionStringToIntDate(dateOfIncomeInString);
-        if(dateOfIncome == 0){
+    } else {
+        do {
+            cout << "----------------------------------------" << endl;
+            cout << "Podaj date przychodu w formacie: YYYY-MM-DD: ";
+            cin >> dateOfIncomeInString;
+            dateOfIncome = AuxiliaryMethods::conversionStringToIntDate(dateOfIncomeInString);
+            if(dateOfIncome == 0) {
                 system("Pause");
                 system("cls");
                 cin.clear();
-                }
-     }while(dateOfIncome == 0);
-     income.setIncomeDate(dateOfIncome);
+            }
+        } while(dateOfIncome == 0);
+        income.setIncomeDate(dateOfIncome);
     }
     float valueOfIncome = 0;
     int goodValue = 1;
 
-     do{
+    do {
         goodValue = 1;
         cout << "----------------------------------------" << endl;
         cout << "Podaj wartosc przychodu, np. 100.22: ";
         //JAK SIE WPROWADZI NP. 200.c to przechodzi!
         //DODAC ZAMIANE , na .
         cin >> valueOfIncome;
-         if( !cin ){
-                cout << "Wprowadzona wartosc nie jest liczba!" << endl;
-                cin.clear();
-                cin.sync();
-                system("Pause");
-                system("cls");
-                goodValue = 0;
-                }
-     }while(goodValue == 0);
+        if( !cin ) {
+            cout << "Wprowadzona wartosc nie jest liczba!" << endl;
+            cin.clear();
+            cin.sync();
+            system("Pause");
+            system("cls");
+            goodValue = 0;
+        }
+    } while(goodValue == 0);
 
     income.setIncomeValue(valueOfIncome);
 
@@ -79,7 +78,7 @@ Incomes BudgetManager::getDateOfNewIncome() {
     return income;
 }
 
-void BudgetManager::printAllIncomes(){
+void BudgetManager::printAllIncomes() {
     system("cls");
     cout << "----------"<< "PRZYCHODY" << "----------" << endl;
 
@@ -89,6 +88,7 @@ void BudgetManager::printAllIncomes(){
         cout << "Income Date: " << incomes[i].getIncomeDate() << endl;
         cout << "Income Value: " << incomes[i].getIncomeValue() << endl;
         cout << "Income Name: " << incomes[i].getIncomeName() << endl;
+        cout << "----------------------------------------" << endl;
         system("Pause");
     }
 }
@@ -96,9 +96,9 @@ void BudgetManager::printAllIncomes(){
 void BudgetManager::addExpense() {
     Expenses expense = getDateOfNewExpense();
     expenses.push_back(expense);
-    //expnesesFileManager.addExpenseToFile(expense);
+    expensesFileManager.addExpenseToFile(expense);
     cout << "Wydatek dodany" << endl;
-    Sleep(1000);
+    system("Pause");
 }
 
 Expenses BudgetManager::getDateOfNewExpense() {
@@ -108,51 +108,57 @@ Expenses BudgetManager::getDateOfNewExpense() {
     int dateOfExpense = 0;
     int choice = 0;
 
+    expense.setLoggedUserID(LOGGED_USER_ID);
+    expense.setExpenseID(expensesFileManager.getIdOfLastExpense() + 1);
+
+    system("cls");
     cout << "----------"<< "DODANIE WYDATKU" << "----------" << endl;
     cout << "Czy wydatek jest z dzisiaj?" << endl;
     cout << "1. TAK" << endl;
     cout << "2. NIE" << endl;
     cin >> choice;
-    if (choice == 1){
+    if (choice == 1) {
         dateOfExpense = AuxiliaryMethods::checkActualDate();
         expense.setExpenseDate(dateOfExpense);
-    }
-    else{
-        do{
-        cout << "Podaj date wydatku w formacie: YYYY-MM-DD: ";
-        cin >> dateOfExpenseInString;
-        dateOfExpense = AuxiliaryMethods::conversionStringToInt(dateOfExpenseInString);
-        if(dateOfExpense == 0){
+    } else {
+        do {
+            cout << "----------------------------------------" << endl;
+            cout << "Podaj date wydatku w formacie: YYYY-MM-DD: ";
+            cin >> dateOfExpenseInString;
+            dateOfExpense = AuxiliaryMethods::conversionStringToInt(dateOfExpenseInString);
+            if(dateOfExpense == 0) {
                 system("Pause");
                 system("cls");
                 cin.clear();
-                }
-     }while(dateOfExpense == 0);
-     expense.setExpenseDate(dateOfExpense);
+            }
+        } while(dateOfExpense == 0);
+        expense.setExpenseDate(dateOfExpense);
     }
 
     float valueOfExpense = 0;
     int goodValue = 1;
 
-     do{
+    do {
         goodValue = 1;
+        cout << "----------------------------------------" << endl;
         cout << "Podaj wartosc wydatku, np. 100.22: ";
         cin >> valueOfExpense;
         //JAK SIE WPROWADZI NP. 200.c to przechodzi!
         //DODAC ZAMIANE , na .
-         if( !cin ){
-                cout << "Wprowadzona wartosc nie jest liczba!" << endl;
-                cin.clear();
-                cin.sync();
-                system("Pause");
-                system("cls");
-                goodValue = 0;
-                }
-     }while(goodValue == 0);
+        if( !cin ) {
+            cout << "Wprowadzona wartosc nie jest liczba!" << endl;
+            cin.clear();
+            cin.sync();
+            system("Pause");
+            system("cls");
+            goodValue = 0;
+        }
+    } while(goodValue == 0);
 
     expense.setExpenseValue(valueOfExpense);
 
     string nameOfExpense = "";
+    cout << "----------------------------------------" << endl;
     cout << "Podaj nazwe wydatku: ";
     cin.sync();
     getline(cin,nameOfExpense);
@@ -161,14 +167,18 @@ Expenses BudgetManager::getDateOfNewExpense() {
     return expense;
 }
 
-void BudgetManager::printAllExpenses(){
+void BudgetManager::printAllExpenses() {
     system("cls");
     //sort (expenses.begin(), expenses.end(), sortByDate);
+    cout << "----------------------------------------" << endl;
     cout << "Zapisane wydatki:" << endl;
     for(int i = 0; i< expenses.size(); i++) {
-        cout << expenses[i].getExpenseDate() << endl;
-        cout << expenses[i].getExpenseValue() << endl;
-        cout << expenses[i].getExpenseName() << endl;
+        cout << "Expense ID: " << expenses[i].getExpenseID() << endl;
+        cout << "User ID: " << expenses[i].getUserID() << endl;
+        cout << "Expense Date: " << expenses[i].getExpenseDate() << endl;
+        cout << "Expense Value: " << expenses[i].getExpenseValue() << endl;
+        cout << "Expense Name: " << expenses[i].getExpenseName() << endl;
+        cout << "----------------------------------------" << endl;
         system("Pause");
     }
 }

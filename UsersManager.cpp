@@ -90,40 +90,38 @@ void UsersManager::loginUser() {
                     Sleep(1000);
                     j = 3;
                     counter++;
-                }
-                else if(j == 2){
+                } else if(j == 2) {
                     cout << "Podales 3 razy bledne haslo. Poczekaj 3 sekundy i sprobuj ponownie" << endl;
                     Sleep(3000);
                     j = -1;
                     system("cls");
                 }
+            }
         }
-        }
-        }
-        if(counter == 0){
+    }
+    if(counter == 0) {
         cout << "Nie ma uzytkownika z takim loginem" << endl;
         Sleep(1000);
     }
 }
 
-bool UsersManager::ifUserIsLogged(){
-    if(loggedUserID > 0){
+bool UsersManager::ifUserIsLogged() {
+    if(loggedUserID > 0) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-int UsersManager::giveIdLoggedUser(){
+int UsersManager::giveIdLoggedUser() {
     return loggedUserID;
 }
 
-void UsersManager::logoutUser(){
+void UsersManager::logoutUser() {
     loggedUserID = 0;
 }
 
-void UsersManager::changePassword(){
+void UsersManager::changePassword() {
     system("cls");
     string userPassword;
     cout << "----------"<< "ZMIANA HASLA" << "----------" << endl << "Podaj nowe haslo: ";
@@ -131,7 +129,7 @@ void UsersManager::changePassword(){
     addNewPasswordToVector(userPassword);
 }
 
-void UsersManager::addNewPasswordToVector(string userPassword){
+void UsersManager::addNewPasswordToVector(string userPassword) {
     Users user;
     int idCurrentUser = 0;
     for(int i = 0; i < users.size(); i++) {

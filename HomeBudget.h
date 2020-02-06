@@ -14,10 +14,11 @@ class HomeBudget{
     BudgetManager *budgetManager;
 
     const string NAME_OF_FILE_WITH_INCOMES;
+    const string NAME_OF_FILE_WITH_EXPENSES;
 
 public:
-     HomeBudget(string nameOfFileWithUsers, string nameOfFileWithIncomes)
-        : usersManager(nameOfFileWithUsers), NAME_OF_FILE_WITH_INCOMES(nameOfFileWithIncomes)
+     HomeBudget(string nameOfFileWithUsers, string nameOfFileWithIncomes, string nameOfFileWithExpenses)
+        : usersManager(nameOfFileWithUsers), NAME_OF_FILE_WITH_INCOMES(nameOfFileWithIncomes), NAME_OF_FILE_WITH_EXPENSES(nameOfFileWithExpenses)
         {budgetManager = NULL;
         };
         ~HomeBudget(){
