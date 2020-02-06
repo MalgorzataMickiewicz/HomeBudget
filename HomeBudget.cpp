@@ -21,6 +21,12 @@ bool HomeBudget::ifUserIsLogged(){
     }
 }
 
+void HomeBudget::logoutUser(){
+    usersManager.logoutUser();
+    delete budgetManager;
+    budgetManager = NULL;
+}
+
 void HomeBudget::changePassword() {
     usersManager.changePassword();
 }

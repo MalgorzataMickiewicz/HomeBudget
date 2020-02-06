@@ -34,7 +34,7 @@ Incomes BudgetManager::getDateOfNewIncome() {
         do{
         cout << "Podaj date przychodu w formacie: YYYY-MM-DD: ";
         cin >> dateOfIncomeInString;
-        dateOfIncome = AuxiliaryMethods::conversionStringToInt(dateOfIncomeInString);
+        dateOfIncome = AuxiliaryMethods::conversionStringToIntDate(dateOfIncomeInString);
         if(dateOfIncome == 0){
                 system("Pause");
                 system("cls");
@@ -70,15 +70,16 @@ Incomes BudgetManager::getDateOfNewIncome() {
     cin.sync();
     getline(cin,nameOfIncome);
     income.setIncomeName(nameOfIncome);
-
+    income.setLoggedUserID(LOGGED_USER_ID);
     return income;
 }
 
 void BudgetManager::printAllIncomes(){
-    cout << "PRZYCHODY Sortowanie od najstarszych: ";
     system("cls");
+    cout << "PRZYCHODY" << endl;
 
     for(int i = 0; i< incomes.size(); i++) {
+        cout << incomes[i].getUserID() << endl;
         cout << incomes[i].getIncomeDate() << endl;
         cout << incomes[i].getIncomeValue() << endl;
         cout << incomes[i].getIncomeName() << endl;

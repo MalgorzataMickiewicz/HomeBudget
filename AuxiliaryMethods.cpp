@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int AuxiliaryMethods::conversionStringToInt(string dateInString) {
+int AuxiliaryMethods::conversionStringToIntDate(string dateInString) {
 
     string shortDateInString = "";
     string yearInString = "";
@@ -54,6 +54,12 @@ float AuxiliaryMethods::conversionStringToFloat(string valueInString){
 
     float valueInFloat = atof(valueInString.c_str());
     return valueInFloat;
+}
+
+int AuxiliaryMethods::conversionStringToInt(string valueInString){
+
+    int valueInInt = atoi(valueInString.c_str());
+    return valueInInt;
 }
 
 string AuxiliaryMethods::conversionIntToStringSeparatedDash(int dateInInt){

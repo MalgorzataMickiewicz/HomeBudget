@@ -16,11 +16,10 @@ using namespace std;
 
 class BudgetManager {
 
+    const int LOGGED_USER_ID;
     vector <Incomes> incomes;
     vector <Expenses> expenses;
-    //string nameOfFileWithIncomes;
     IncomesFileManager incomesFileManager;
-    const int LOGGED_USER_ID;
 
     Incomes getDateOfNewIncome();
     Expenses getDateOfNewExpense();

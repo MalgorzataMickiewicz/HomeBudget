@@ -2,16 +2,16 @@
 
 //Setter
 void Incomes::setIncomeDate(int newIncomeDate) {
-    dateOfIncome=newIncomeDate;
+    dateOfIncome = newIncomeDate;
 }
 void Incomes::setIncomeValue(float newIncomeValue) {
-    valueOfIncome=newIncomeValue;
+    valueOfIncome = newIncomeValue;
 }
 void Incomes::setIncomeName(string newIncomeName) {
-    nameOfIncome=newIncomeName;
+    nameOfIncome = newIncomeName;
 }
 void Incomes::setLoggedUserID(int newLoggedUserID) {
-    LOGGED_USER_ID=newLoggedUserID;
+    LOGGED_USER_ID = newLoggedUserID;
 }
 
 //Getter

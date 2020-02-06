@@ -29,6 +29,7 @@ public:
     void printAllUsers();
     void loginUser();
     bool ifUserIsLogged();
+    void logoutUser();
     void changePassword();
     void addNewPasswordToVector();
     void addIncome();

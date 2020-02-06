@@ -18,7 +18,6 @@ void IncomesFileManager::addIncomeToFile(Incomes income){
     xml.AddElem("income");
     xml.IntoElem();
     dateSeparatedDash = AuxiliaryMethods::conversionIntToStringSeparatedDash(income.getIncomeDate());
-    //xml.AddElem("incomeId", );
     xml.AddElem("userId", AuxiliaryMethods::conversionIntToString(income.getUserID()));
     xml.AddElem("date", dateSeparatedDash);
     xml.AddElem("value", income.getIncomeValue());
@@ -33,8 +32,9 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
     CMarkup xml;
     int dateInInt = 0;
     float valueInFloat = 0;
+    int userIdInInt = 0;
 
-    bool fileExists = xml.Load( "Incomes.xml" );
+    bool fileExists = xml.Load( "incomes.xml" );
     if (fileExists){
             MCD_STR userId;
             MCD_STR incomeId;
@@ -45,6 +45,8 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
             xml.FindElem();
             xml.IntoElem();
             xml.IntoElem();
+            xml.FindElem("userId");
+            userId = xml.GetData();
             xml.FindElem("date");
             date = xml.GetData();
             xml.FindElem("value");
@@ -53,14 +55,16 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID){
             name = xml.GetData();
             xml.OutOfElem();
             xml.OutOfElem();
-            dateInInt = AuxiliaryMethods::conversionStringToInt(date);
+            userIdInInt = AuxiliaryMethods::conversionStringToInt(userId);
+            income.setLoggedUserID(userIdInInt);
+            dateInInt = AuxiliaryMethods::conversionStringToIntDate(date);
             income.setIncomeDate(dateInInt);
             valueInFloat = AuxiliaryMethods::conversionStringToFloat(value);
             income.setIncomeValue(valueInFloat);
             income.setIncomeName(name);
-            //if(loggedUserID == ) {
-            incomes.push_back(income);
-            //}
+            if(loggedUserID == userIdInInt) {
+                incomes.push_back(income);
+            }
             }
     }
   return incomes;

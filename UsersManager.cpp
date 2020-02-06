@@ -79,7 +79,7 @@ void UsersManager::loginUser() {
     cout << "----------"<< "LOGOWANIE" << "----------" << endl << "Podaj login: ";
     cin>>userLogin;
 
-    for(int i=0; i<users.size(); i++) {
+    for(int i = 0; i<users.size(); i++) {
         if(users[i].getUserLogin() == userLogin) {
             for(int j=0; j<3; j++) {
                 cout << "Podaj haslo. Pozostalo prob: " << 3-j << ": ";
@@ -117,6 +117,10 @@ bool UsersManager::ifUserIsLogged(){
 
 int UsersManager::giveIdLoggedUser(){
     return loggedUserID;
+}
+
+void UsersManager::logoutUser(){
+    loggedUserID = 0;
 }
 
 void UsersManager::changePassword(){
