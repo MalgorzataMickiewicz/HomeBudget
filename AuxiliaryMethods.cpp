@@ -135,30 +135,25 @@ bool AuxiliaryMethods::checkYear(int month, int year, int day) {
     }
 }
 
-bool AuxiliaryMethods::checkValue(float valueInFloat) {
-    string valueInString = conversionFloatToString(valueInFloat);
-    string comma = ",";
-    int placeOfComma = valueInString.find(comma);
-    cout << valueInString << endl;
-    cout << placeOfComma << endl;
-    system("Pause");
-
-    return true;
-}
-
-string AuxiliaryMethods::conversionFloatToString(float valueInFloat) {
-
-    string valueInString;
-    stringstream FloatToString;
-    FloatToString << valueInFloat;
-    FloatToString >> valueInString;
-
-    return valueInString;
-}
-
 float AuxiliaryMethods::conversionStringToFloat(string valueInString) {
+    string comma = ",";
+    string dot = ".";
+    string shortValueInString = "";
+    int lengthOfString = 0;
 
-    float valueInFloat = atof(valueInString.c_str());
+    int placeOfComma = valueInString.find(comma);
+    if(placeOfComma != string::npos){
+        valueInString.replace(placeOfComma,1,".");
+        lengthOfString = valueInString.length();
+        shortValueInString = valueInString.substr(0,placeOfComma+3);
+    }
+    else{
+        int placeOfDot = valueInString.find(dot);
+        lengthOfString = valueInString.length();
+        shortValueInString = valueInString.substr(0,placeOfDot+3);
+    }
+
+    float valueInFloat = atof(shortValueInString.c_str());
     return valueInFloat;
 }
 
@@ -168,11 +163,18 @@ int AuxiliaryMethods::conversionStringToInt(string valueInString) {
     return valueInInt;
 }
 
-string AuxiliaryMethods::conversionIntToString(int number) {
+string AuxiliaryMethods::conversionIntToString(int numberInInt) {
     ostringstream ss;
-    ss << number;
-    string str = ss.str();
-    return str;
+    ss << numberInInt;
+    string numberInString = ss.str();
+    return numberInString;
+}
+
+string AuxiliaryMethods::conversionFloatToString(float numberInFloat){
+    stringstream ss;
+    ss << numberInFloat;
+    string s(ss.str());
+    return s;
 }
 
 string AuxiliaryMethods::conversionIntToStringSeparatedDash(int dateInInt) {
