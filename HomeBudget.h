@@ -25,7 +25,8 @@ public:
     delete budgetManager;
     budgetManager = NULL;
     }
-
+    int showMenu(int choice);
+    int showSecondMenu(int choice);
     void registerUser();
     void printAllUsers();
     void loginUser();

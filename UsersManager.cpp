@@ -16,6 +16,7 @@ Users UsersManager::getDateOfNewUser() {
 
     string userLogin;
     do {
+        system("cls");
         cout << "----------"<< "REJESTRACJA" << "----------" << endl << "Podaj login: ";
         cin >> userLogin;
         user.setUserLogin(userLogin);

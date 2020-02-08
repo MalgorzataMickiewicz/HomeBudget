@@ -107,7 +107,6 @@ void BudgetManager::printAllIncomes() {
     }
 }
 
-
 void BudgetManager::summOfIncomes(){
     system("cls");
     cout << "----------"<< "SUMA PRZYCHODOW" << "----------" << endl;
