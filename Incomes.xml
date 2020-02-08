@@ -14,4 +14,11 @@
 <value>100.21</value>
 <name>Testowa2</name>
 </income>
+<income>
+<incomeId>3</incomeId>
+<userId>1</userId>
+<date>2020-02-08</date>
+<value>215.21</value>
+<name>Test3</name>
+</income>
 </incomes>

@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <vector>
+#include <cmath>
 
 #include "BudgetManager.h"
 
@@ -88,17 +89,41 @@ Incomes BudgetManager::getDateOfNewIncome() {
 void BudgetManager::printAllIncomes() {
     system("cls");
     cout << "----------"<< "PRZYCHODY" << "----------" << endl;
-
+    //DODAC SORTOWANIE
+    if(!incomes.empty()){
     for(int i = 0; i< incomes.size(); i++) {
         cout << "Income ID: " << incomes[i].getIncomeID() << endl;
         cout << "User ID: " << incomes[i].getUserID() << endl;
         cout << "Income Date: " << incomes[i].getIncomeDate() << endl;
-        cout << "Income Value: " << incomes[i].getIncomeValue() << endl;
+        cout << "Income Value: " << incomes[i].getIncomeValue() << " zl" << endl;
         cout << "Income Name: " << incomes[i].getIncomeName() << endl;
         cout << "----------------------------------------" << endl;
         system("Pause");
     }
+    }
+    else{
+        cout << "Nie masz jeszcze zadnych przychodow!" << endl;
+        system("Pause");
+    }
 }
+
+
+void BudgetManager::summOfIncomes(){
+    system("cls");
+    cout << "----------"<< "SUMA PRZYCHODOW" << "----------" << endl;
+    if(!incomes.empty()){
+    for(int i = 0; i< incomes.size(); i++) {
+    summValueOfIncomes += incomes[i].getIncomeValue();
+    }
+    cout << "Suma przychodow: " << summValueOfIncomes << " zl" << endl;
+    system("Pause");
+    }
+    else{
+        cout << "Nie masz jeszcze zadnych przychodow!" << endl;
+        system("Pause");
+    }
+}
+
 
 void BudgetManager::addExpense() {
     Expenses expense = getDateOfNewExpense();
@@ -183,19 +208,58 @@ Expenses BudgetManager::getDateOfNewExpense() {
 
 void BudgetManager::printAllExpenses() {
     system("cls");
+    //DODAC SORTOWANIE
     //sort (expenses.begin(), expenses.end(), sortByDate);
-    cout << "----------------------------------------" << endl;
-    cout << "Zapisane wydatki:" << endl;
+    cout << "----------"<< "WYDATKI" << "----------" << endl;
+    if(!expenses.empty()){
     for(int i = 0; i< expenses.size(); i++) {
         cout << "Expense ID: " << expenses[i].getExpenseID() << endl;
         cout << "User ID: " << expenses[i].getUserID() << endl;
         cout << "Expense Date: " << expenses[i].getExpenseDate() << endl;
-        cout << "Expense Value: " << expenses[i].getExpenseValue() << endl;
+        cout << "Expense Value: " << expenses[i].getExpenseValue() << " zl" << endl;
         cout << "Expense Name: " << expenses[i].getExpenseName() << endl;
         cout << "----------------------------------------" << endl;
         system("Pause");
     }
+    }
+    else{
+        cout << "Nie masz jeszcze zadnych wydatkow!" << endl;
+        system("Pause");
+    }
 }
+
+void BudgetManager::summOfExpenses(){
+    system("cls");
+    cout << "----------"<< "SUMA WYDATKOW" << "----------" << endl;
+    if(!expenses.empty()){
+    for(int i = 0; i< incomes.size(); i++) {
+    summValueOfExpenses += expenses[i].getExpenseValue();
+    }
+    cout << "Suma wydatkow: " << summValueOfExpenses << " zl" <<  endl;
+    system("Pause");
+}
+else{
+    cout << "Nie masz jeszcze zadnych wydatkow!" << endl;
+    system("Pause");
+}
+}
+
+void BudgetManager::showBalance(){
+    float summ = summValueOfIncomes - summValueOfExpenses;
+    system("cls");
+    cout << "----------"<< "BILANS" << "----------" << endl;
+    if((summValueOfIncomes - summValueOfExpenses) < 0){
+    cout <<  "Przekroczyles swoj budzet! Wydales za duzo o: " << abs(summ) << " zl" << endl;
+    system("Pause");
+    }
+    else{
+        cout <<  "Mozesz jeszcze wydac w tym miesiacu: " << abs(summ) << " zl" << endl;
+        system("Pause");
+    }
+
+
+}
+
 /*
 bool BudgetManager::sortByDate(Expenses* t1, Expenses* t2){
     return t1.*getExpenseDate() < t2.*getExpenseDate();

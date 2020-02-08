@@ -37,6 +37,9 @@ public:
     void printAllIncomes();
     void addExpense();
     void printAllExpenses();
+    void summOfIncomes();
+    void summOfExpenses();
+    void showBalance();
 };
 
 #endif

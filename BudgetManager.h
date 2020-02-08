@@ -22,6 +22,8 @@ class BudgetManager {
     vector <Expenses> expenses;
     IncomesFileManager incomesFileManager;
     ExpensesFileManager expensesFileManager;
+    float summValueOfIncomes;
+    float summValueOfExpenses;
 
     Incomes getDateOfNewIncome();
     Expenses getDateOfNewExpense();
@@ -37,7 +39,11 @@ public:
     void printAllIncomes();
     void addExpense();
     void printAllExpenses();
+    void summOfIncomes();
+    void summOfExpenses();
+    void showBalance();
     //bool sortByDate(Expenses* t1, Expenses* t2);
+    //DODAC WYDATKI DLA DANEGO OKRESU
 
 };
 
