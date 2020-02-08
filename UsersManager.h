@@ -29,7 +29,6 @@ public:
 
     void registerUser();
     int getIDNewUser();
-    void printAllUsers();
     void loginUser();
     bool ifUserIsLogged();
     void logoutUser();

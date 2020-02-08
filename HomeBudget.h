@@ -28,19 +28,16 @@ public:
     int showMenu(int choice);
     int showSecondMenu(int choice);
     void registerUser();
-    void printAllUsers();
     void loginUser();
     bool ifUserIsLogged();
     void logoutUser();
     void changePassword();
     void addNewPasswordToVector();
     void addIncome();
-    void printAllIncomes();
     void addExpense();
-    void printAllExpenses();
-    void summOfIncomes();
-    void summOfExpenses();
-    void showBalance();
+    void showCurrentMonth();
+    void showPreviousMonth();
+    void showSelectedPeriod();
 };
 
 #endif

@@ -58,19 +58,6 @@ int UsersManager::getIDNewUser() {
         return users.back().getUserID()+ 1;
 }
 
-void UsersManager::printAllUsers() {
-    system("cls");
-    cout << "Zapisani uzytkownicy:" << endl;
-    for(int i = 0; i< users.size(); i++) {
-        cout << users[i].getUserID() << endl;
-        cout << users[i].getUserLogin() << endl;
-        cout << users[i].getUserName() << endl;
-        cout << users[i].getUserLastname() << endl;
-        cout << users[i].getUserPassword() << endl;
-        system("Pause");
-    }
-}
-
 void UsersManager::loginUser() {
     Users user;
     int counter = 0;

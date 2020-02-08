@@ -54,10 +54,6 @@ void HomeBudget::registerUser() {
     usersManager.registerUser();
 }
 
-void HomeBudget::printAllUsers() {
-    usersManager.printAllUsers();
-}
-
 void HomeBudget::loginUser() {
     usersManager.loginUser();
     if(usersManager.ifUserIsLogged()) {
@@ -84,26 +80,17 @@ void HomeBudget::addIncome() {
     budgetManager->addIncome();
 }
 
-void HomeBudget::printAllIncomes() {
-    budgetManager->printAllIncomes();
-}
-
 void HomeBudget::addExpense() {
     budgetManager->addExpense();
 }
 
-void HomeBudget::printAllExpenses() {
-    budgetManager->printAllExpenses();
+void HomeBudget::showCurrentMonth(){
+    budgetManager->showCurrentMonth();
 }
 
-void HomeBudget::summOfIncomes() {
-    budgetManager->summOfIncomes();
+void HomeBudget::showPreviousMonth(){
+    budgetManager->showPreviousMonth();
 }
-
-void HomeBudget::summOfExpenses(){
- budgetManager->summOfExpenses();
-}
-
-void HomeBudget::showBalance(){
-    budgetManager->showBalance();
+void HomeBudget::showSelectedPeriod(){
+    budgetManager->showSelectedPeriod();
 }

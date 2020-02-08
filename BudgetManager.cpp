@@ -86,44 +86,6 @@ Incomes BudgetManager::getDateOfNewIncome() {
     return income;
 }
 
-void BudgetManager::printAllIncomes() {
-    system("cls");
-    cout << "----------"<< "PRZYCHODY" << "----------" << endl;
-    //DODAC SORTOWANIE
-    if(!incomes.empty()){
-    for(int i = 0; i< incomes.size(); i++) {
-        cout << "Income ID: " << incomes[i].getIncomeID() << endl;
-        cout << "User ID: " << incomes[i].getUserID() << endl;
-        cout << "Income Date: " << incomes[i].getIncomeDate() << endl;
-        cout << "Income Value: " << incomes[i].getIncomeValue() << " zl" << endl;
-        cout << "Income Name: " << incomes[i].getIncomeName() << endl;
-        cout << "----------------------------------------" << endl;
-        system("Pause");
-    }
-    }
-    else{
-        cout << "Nie masz jeszcze zadnych przychodow!" << endl;
-        system("Pause");
-    }
-}
-
-void BudgetManager::summOfIncomes(){
-    system("cls");
-    cout << "----------"<< "SUMA PRZYCHODOW" << "----------" << endl;
-    if(!incomes.empty()){
-    for(int i = 0; i< incomes.size(); i++) {
-    summValueOfIncomes += incomes[i].getIncomeValue();
-    }
-    cout << "Suma przychodow: " << summValueOfIncomes << " zl" << endl;
-    system("Pause");
-    }
-    else{
-        cout << "Nie masz jeszcze zadnych przychodow!" << endl;
-        system("Pause");
-    }
-}
-
-
 void BudgetManager::addExpense() {
     Expenses expense = getDateOfNewExpense();
     expenses.push_back(expense);
@@ -205,8 +167,67 @@ Expenses BudgetManager::getDateOfNewExpense() {
     return expense;
 }
 
-void BudgetManager::printAllExpenses() {
+void BudgetManager::showCurrentMonth(){
+    printAllIncomes();
+    summOfIncomes();
+    printAllExpenses();
+    summOfExpenses();
+    showBalance();
+}
+
+void BudgetManager::showPreviousMonth(){
+    printAllIncomes();
+    summOfIncomes();
+    printAllExpenses();
+    summOfExpenses();
+    showBalance();
+}
+void BudgetManager::showSelectedPeriod(){
+    printAllIncomes();
+    summOfIncomes();
+    printAllExpenses();
+    summOfExpenses();
+    showBalance();
+}
+
+
+void BudgetManager::printAllIncomes() {
     system("cls");
+    cout << "----------"<< "PRZYCHODY" << "----------" << endl;
+    //DODAC SORTOWANIE
+    if(!incomes.empty()){
+    for(int i = 0; i< incomes.size(); i++) {
+        cout << "Income ID: " << incomes[i].getIncomeID() << endl;
+        cout << "User ID: " << incomes[i].getUserID() << endl;
+        cout << "Income Date: " << incomes[i].getIncomeDate() << endl;
+        cout << "Income Value: " << incomes[i].getIncomeValue() << " zl" << endl;
+        cout << "Income Name: " << incomes[i].getIncomeName() << endl;
+        cout << "----------------------------------------" << endl;
+    }
+    }
+    else{
+        cout << "Nie masz jeszcze zadnych przychodow!" << endl;
+        system("Pause");
+    }
+}
+
+void BudgetManager::summOfIncomes(){
+    cout << "SUMA PRZYCHODOW: ";
+    if(!incomes.empty()){
+    for(int i = 0; i< incomes.size(); i++) {
+    summValueOfIncomes += incomes[i].getIncomeValue();
+    }
+    cout << summValueOfIncomes << " zl" << endl;
+    cout << endl;
+    }
+    else{
+        cout << endl;
+        cout << "Nie masz jeszcze zadnych przychodow!" << endl;
+        system("Pause");
+    }
+}
+
+void BudgetManager::printAllExpenses() {
     //DODAC SORTOWANIE
     //sort (expenses.begin(), expenses.end(), sortByDate);
     cout << "----------"<< "WYDATKI" << "----------" << endl;
@@ -218,7 +239,6 @@ void BudgetManager::printAllExpenses() {
         cout << "Expense Value: " << expenses[i].getExpenseValue() << " zl" << endl;
         cout << "Expense Name: " << expenses[i].getExpenseName() << endl;
         cout << "----------------------------------------" << endl;
-        system("Pause");
     }
     }
     else{
@@ -228,14 +248,14 @@ void BudgetManager::printAllExpenses() {
 }
 
 void BudgetManager::summOfExpenses(){
-    system("cls");
-    cout << "----------"<< "SUMA WYDATKOW" << "----------" << endl;
+    cout << "SUMA WYDATKOW: ";
     if(!expenses.empty()){
-    for(int i = 0; i< incomes.size(); i++) {
+    summValueOfExpenses = 0;
+    for(int i = 0; i< expenses.size(); i++) {
     summValueOfExpenses += expenses[i].getExpenseValue();
     }
-    cout << "Suma wydatkow: " << summValueOfExpenses << " zl" <<  endl;
-    system("Pause");
+    cout << summValueOfExpenses << " zl" <<  endl;
+    cout << endl;
 }
 else{
     cout << "Nie masz jeszcze zadnych wydatkow!" << endl;
@@ -245,7 +265,6 @@ else{
 
 void BudgetManager::showBalance(){
     float summ = summValueOfIncomes - summValueOfExpenses;
-    system("cls");
     cout << "----------"<< "BILANS" << "----------" << endl;
     if((summValueOfIncomes - summValueOfExpenses) < 0){
     cout <<  "Przekroczyles swoj budzet! Wydales za duzo o: " << abs(summ) << " zl" << endl;
@@ -255,8 +274,6 @@ void BudgetManager::showBalance(){
         cout <<  "Mozesz jeszcze wydac w tym miesiacu: " << abs(summ) << " zl" << endl;
         system("Pause");
     }
-
-
 }
 
 /*

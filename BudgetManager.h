@@ -36,8 +36,11 @@ public:
     };
 
     void addIncome();
-    void printAllIncomes();
     void addExpense();
+    void showCurrentMonth();
+    void showPreviousMonth();
+    void showSelectedPeriod();
+    void printAllIncomes();
     void printAllExpenses();
     void summOfIncomes();
     void summOfExpenses();

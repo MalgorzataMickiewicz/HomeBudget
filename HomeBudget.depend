@@ -27,7 +27,7 @@
 	<iostream>
 	<string>
 
-1581188586 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.cpp
+1581190359 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.cpp
 	<iomanip>
 	<algorithm>
 	<vector>
@@ -41,7 +41,7 @@
 	"Markup.h"
 	"ExpensesFileManager.h"
 
-1581189140 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.cpp
+1581190195 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.cpp
 	"HomeBudget.h"
 	"UsersManager.h"
 
@@ -52,7 +52,7 @@
 	"Markup.h"
 	"IncomesFileManager.h"
 
-1581189271 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
+1581190226 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
 	"HomeBudget.h"
 	<iostream>
 
@@ -63,18 +63,18 @@
 	"Markup.h"
 	"UsersFileManager.h"
 
-1581188632 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.cpp
+1581189823 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.cpp
 	"UsersManager.h"
 
 1581016673 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\xmlfile.cpp
 	"XMLFile.h"
 
-1581188804 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.h
+1581190195 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.h
 	<iostream>
 	"UsersManager.h"
 	"BudgetManager.h"
 
-1581009872 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.h
+1581189823 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\usersmanager.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -97,7 +97,7 @@
 
 1580649307 D
 
-1581188288 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
+1581189823 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
 	<iostream>
 	<vector>
 	<fstream>

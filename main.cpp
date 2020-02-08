@@ -22,13 +22,9 @@ int main() {
             if(choice == 1) {
                 homeBudget.addIncome();
             } else if(choice == 2) {
-                 homeBudget.addExpense();
+                homeBudget.addExpense();
             } else if(choice == 3) {//BIEZACY MIESIAC
-                homeBudget.printAllIncomes();
-                homeBudget.printAllExpenses();
-                homeBudget.summOfIncomes();
-                homeBudget.summOfExpenses();
-                homeBudget.showBalance();
+                homeBudget.showCurrentMonth();
             } else if(choice == 4) {//POPRZEDNI MIESIAC
 
             } else if(choice == 5) {//WYBRANY OKRES
