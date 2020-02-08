@@ -23,7 +23,7 @@ Incomes BudgetManager::getDateOfNewIncome() {
 
     income.setLoggedUserID(LOGGED_USER_ID);
     income.setIncomeID((incomesFileManager.getIdOfLastIncome()) + 1);
-
+    do{
     system("cls");
     cout << "----------"<< "DODANIE PRZYCHODU" << "----------" << endl;
     cout << "Czy przychod jest z dzisiaj?" << endl;
@@ -33,25 +33,31 @@ Incomes BudgetManager::getDateOfNewIncome() {
     if (choice == 1) {
         dateOfIncome = AuxiliaryMethods::checkActualDate();
         income.setIncomeDate(dateOfIncome);
-    } else {
+    } else if(choice == 2){
         do {
-            cout << "----------------------------------------" << endl;
+            cout << "-------------------------------------------" << endl;
             cout << "Podaj date przychodu w formacie: YYYY-MM-DD: ";
             cin >> dateOfIncomeInString;
             dateOfIncome = AuxiliaryMethods::conversionStringToIntDate(dateOfIncomeInString);
             if(dateOfIncome == 0) {
-                system("Pause");
-                system("cls");
                 cin.clear();
             }
         } while(dateOfIncome == 0);
         income.setIncomeDate(dateOfIncome);
     }
+    else{
+        cout << "Podaj cyfre 1 lub 2!" << endl;
+        Sleep(2000);
+        cin.clear();
+        cin.sync();
+        choice = 0;
+    }
+    }while(choice == 0);
+
     float valueOfIncome = 0;
-    int goodValue = 1;
+    int goodValue = 0;
 
     do {
-        goodValue = 1;
         cout << "----------------------------------------" << endl;
         cout << "Podaj wartosc przychodu, np. 100.22: ";
         //JAK SIE WPROWADZI NP. 200.c to przechodzi!
@@ -59,14 +65,16 @@ Incomes BudgetManager::getDateOfNewIncome() {
         cin >> valueOfIncome;
         if( !cin ) {
             cout << "Wprowadzona wartosc nie jest liczba!" << endl;
+            Sleep(3000);
             cin.clear();
             cin.sync();
-            system("Pause");
-            system("cls");
             goodValue = 0;
         }
+        else{
+            AuxiliaryMethods::checkValue(valueOfIncome);
+            goodValue = 1;
+        }
     } while(goodValue == 0);
-
     income.setIncomeValue(valueOfIncome);
 
     string nameOfIncome = "";
@@ -125,7 +133,7 @@ Expenses BudgetManager::getDateOfNewExpense() {
             cout << "----------------------------------------" << endl;
             cout << "Podaj date wydatku w formacie: YYYY-MM-DD: ";
             cin >> dateOfExpenseInString;
-            dateOfExpense = AuxiliaryMethods::conversionStringToInt(dateOfExpenseInString);
+            dateOfExpense = AuxiliaryMethods::conversionStringToIntDate(dateOfExpenseInString);
             if(dateOfExpense == 0) {
                 system("Pause");
                 system("cls");

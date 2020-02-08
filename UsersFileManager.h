@@ -6,16 +6,16 @@
 #include <vector>
 #include <cstdlib>
 
-#include "XMLFile.h"
+#include "FilesManager.h"
 #include "Users.h"
 
 using namespace std;
 
-class UsersFileManager: public XMLFile {
+class UsersFileManager: public FileManager {
 
 public:
     UsersFileManager(string nameOfFile)
-        : XMLFile (nameOfFile) {};
+        : FileManager (nameOfFile) {};
 
     void addUserToFile(Users user);
     vector <Users> loadUsersFromFile();

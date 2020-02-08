@@ -6,19 +6,19 @@
 #include <vector>
 #include <cstdlib>
 
-#include "XMLFile.h"
+#include "FilesManager.h"
 #include "Expenses.h"
 #include "AuxiliaryMethods.h"
 
 using namespace std;
 
-class ExpensesFileManager: public XMLFile {
+class ExpensesFileManager: public FileManager {
 
     int idLastExpense;
 
 public:
     ExpensesFileManager(string nameOfFile)
-        : XMLFile (nameOfFile) {
+        : FileManager (nameOfFile) {
         idLastExpense = 0;
         };
 
