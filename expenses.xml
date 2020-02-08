@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<expenses>
+<expense>
+<expenseId>1</expenseId>
+<userId>1</userId>
+<date>2020-02-08</date>
+<value>200.21</value>
+<name>Test1</name>
+</expense>
+<expense>
+<expenseId>2</expenseId>
+<userId>1</userId>
+<date>2020-01-21</date>
+<value>100.75</value>
+<name>Test2</name>
+</expense>
+</expenses>

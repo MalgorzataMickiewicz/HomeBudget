@@ -118,6 +118,7 @@ Expenses BudgetManager::getDateOfNewExpense() {
     expense.setLoggedUserID(LOGGED_USER_ID);
     expense.setExpenseID(expensesFileManager.getIdOfLastExpense() + 1);
 
+    do{
     system("cls");
     cout << "----------"<< "DODANIE WYDATKU" << "----------" << endl;
     cout << "Czy wydatek jest z dzisiaj?" << endl;
@@ -127,42 +128,48 @@ Expenses BudgetManager::getDateOfNewExpense() {
     if (choice == 1) {
         dateOfExpense = AuxiliaryMethods::checkActualDate();
         expense.setExpenseDate(dateOfExpense);
-    } else {
+    } else if(choice == 2){
         do {
             cout << "----------------------------------------" << endl;
             cout << "Podaj date wydatku w formacie: YYYY-MM-DD: ";
             cin >> dateOfExpenseInString;
             dateOfExpense = AuxiliaryMethods::conversionStringToIntDate(dateOfExpenseInString);
             if(dateOfExpense == 0) {
-                system("Pause");
-                system("cls");
                 cin.clear();
             }
         } while(dateOfExpense == 0);
         expense.setExpenseDate(dateOfExpense);
     }
+    else{
+        cout << "Podaj cyfre 1 lub 2!" << endl;
+        Sleep(2000);
+        cin.clear();
+        cin.sync();
+        choice = 0;
+    }
+    }while(choice == 0);
 
-    float valueOfExpense = 0;
-    int goodValue = 1;
+    string valueOfExpenseInString = "";
+    float valueOfExpenseInFloat = 0;
+    int goodValue = 0;
 
     do {
-        goodValue = 1;
         cout << "----------------------------------------" << endl;
         cout << "Podaj wartosc wydatku, np. 100.22: ";
-        cin >> valueOfExpense;
-        //JAK SIE WPROWADZI NP. 200.c to przechodzi!
-        //DODAC ZAMIANE , na .
+        cin >> valueOfExpenseInString;
         if( !cin ) {
             cout << "Wprowadzona wartosc nie jest liczba!" << endl;
+            Sleep(3000);
             cin.clear();
             cin.sync();
-            system("Pause");
-            system("cls");
             goodValue = 0;
         }
+        else{
+            valueOfExpenseInFloat = AuxiliaryMethods::conversionStringToFloat(valueOfExpenseInString);
+            goodValue = 1;
+        }
     } while(goodValue == 0);
-
-    expense.setExpenseValue(valueOfExpense);
+    expense.setExpenseValue(valueOfExpenseInFloat);
 
     string nameOfExpense = "";
     cout << "----------------------------------------" << endl;

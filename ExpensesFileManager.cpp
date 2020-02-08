@@ -21,7 +21,7 @@ void ExpensesFileManager::addExpenseToFile(Expenses expense) {
     xml.AddElem("expenseId", AuxiliaryMethods::conversionIntToString(expense.getExpenseID()));
     xml.AddElem("userId", AuxiliaryMethods::conversionIntToString(expense.getUserID()));
     xml.AddElem("date", dateSeparatedDash);
-    xml.AddElem("value", expense.getExpenseValue());
+    xml.AddElem("value", AuxiliaryMethods::conversionFloatToString(expense.getExpenseValue()));
     xml.AddElem("name", expense.getExpenseName());
     xml.Save("expenses.xml");
     idLastExpense++;
@@ -32,10 +32,6 @@ vector <Expenses> ExpensesFileManager::loadExpensesFromFile(int loggedUserID) {
     Expenses expense;
     vector <Expenses> expenses;
     CMarkup xml;
-    int dateInInt = 0;
-    float valueInFloat = 0;
-    int userIdInInt = 0;
-    int expenseIdInInt = 0;
 
     bool fileExists = xml.Load( "expenses.xml" );
     if (fileExists) {
@@ -60,19 +56,15 @@ vector <Expenses> ExpensesFileManager::loadExpensesFromFile(int loggedUserID) {
             name = xml.GetData();
             xml.OutOfElem();
             xml.OutOfElem();
-            expenseIdInInt = AuxiliaryMethods::conversionStringToInt(expenseId);
-            expense.setExpenseID(expenseIdInInt);
-            userIdInInt = AuxiliaryMethods::conversionStringToInt(userId);
-            expense.setLoggedUserID(userIdInInt);
-            dateInInt = AuxiliaryMethods::conversionStringToIntDate(date);
-            expense.setExpenseDate(dateInInt);
-            valueInFloat = AuxiliaryMethods::conversionStringToFloat(value);
-            expense.setExpenseValue(valueInFloat);
+            expense.setExpenseID(AuxiliaryMethods::conversionStringToInt(expenseId));
+            expense.setLoggedUserID(AuxiliaryMethods::conversionStringToInt(userId));
+            expense.setExpenseDate(AuxiliaryMethods::conversionStringToIntDate(date));
+            expense.setExpenseValue(AuxiliaryMethods::conversionStringToFloat(value));
             expense.setExpenseName(name);
-            if(loggedUserID == userIdInInt) {
+            if(loggedUserID == AuxiliaryMethods::conversionStringToInt(userId)) {
                 expenses.push_back(expense);
             }
-            idLastExpense = expenseIdInInt;
+            idLastExpense = AuxiliaryMethods::conversionStringToInt(expenseId);
         }
     }
     return expenses;
