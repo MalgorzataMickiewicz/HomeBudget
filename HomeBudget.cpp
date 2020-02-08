@@ -46,3 +46,15 @@ void HomeBudget::addExpense() {
 void HomeBudget::printAllExpenses() {
     budgetManager->printAllExpenses();
 }
+
+void HomeBudget::summOfIncomes() {
+    budgetManager->summOfIncomes();
+}
+
+void HomeBudget::summOfExpenses(){
+ budgetManager->summOfExpenses();
+}
+
+void HomeBudget::showBalance(){
+    budgetManager->showBalance();
+}
