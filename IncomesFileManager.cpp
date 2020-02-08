@@ -7,7 +7,6 @@ void IncomesFileManager::addIncomeToFile(Incomes income) {
 
     CMarkup xml;
     bool fileExists = xml.Load( "incomes.xml" );
-    string dateSeparatedDash;
 
     if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
@@ -17,11 +16,10 @@ void IncomesFileManager::addIncomeToFile(Incomes income) {
     xml.IntoElem();
     xml.AddElem("income");
     xml.IntoElem();
-    dateSeparatedDash = AuxiliaryMethods::conversionIntToStringSeparatedDash(income.getIncomeDate());
     xml.AddElem("incomeId", AuxiliaryMethods::conversionIntToString(income.getIncomeID()));
     xml.AddElem("userId", AuxiliaryMethods::conversionIntToString(income.getUserID()));
-    xml.AddElem("date", dateSeparatedDash);
-    xml.AddElem("value", income.getIncomeValue());
+    xml.AddElem("date", AuxiliaryMethods::conversionIntToStringSeparatedDash(income.getIncomeDate()));
+    xml.AddElem("value", AuxiliaryMethods::conversionFloatToString(income.getIncomeValue()));
     xml.AddElem("name", income.getIncomeName());
     xml.Save("incomes.xml");
     idLastIncome++;
@@ -32,10 +30,6 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID) {
     Incomes income;
     vector <Incomes> incomes;
     CMarkup xml;
-    int dateInInt = 0;
-    float valueInFloat = 0;
-    int userIdInInt = 0;
-    int incomeIdInInt = 0;
 
     bool fileExists = xml.Load( "incomes.xml" );
     if (fileExists) {
@@ -60,19 +54,15 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID) {
             name = xml.GetData();
             xml.OutOfElem();
             xml.OutOfElem();
-            incomeIdInInt = AuxiliaryMethods::conversionStringToInt(incomeId);
-            income.setIncomeID(incomeIdInInt);
-            userIdInInt = AuxiliaryMethods::conversionStringToInt(userId);
-            income.setLoggedUserID(userIdInInt);
-            dateInInt = AuxiliaryMethods::conversionStringToIntDate(date);
-            income.setIncomeDate(dateInInt);
-            valueInFloat = AuxiliaryMethods::conversionStringToFloat(value);
-            income.setIncomeValue(valueInFloat);
+            income.setIncomeID(AuxiliaryMethods::conversionStringToInt(incomeId));
+            income.setLoggedUserID(AuxiliaryMethods::conversionStringToInt(userId));
+            income.setIncomeDate(AuxiliaryMethods::conversionStringToIntDate(date));
+            income.setIncomeValue(AuxiliaryMethods::conversionStringToFloat(value));
             income.setIncomeName(name);
-            if(loggedUserID == userIdInInt) {
+            if(loggedUserID == AuxiliaryMethods::conversionStringToInt(userId)) {
                 incomes.push_back(income);
             }
-            idLastIncome = incomeIdInInt;
+            idLastIncome = AuxiliaryMethods::conversionStringToInt(incomeId);
         }
     }
     return incomes;

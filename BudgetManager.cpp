@@ -54,15 +54,14 @@ Incomes BudgetManager::getDateOfNewIncome() {
     }
     }while(choice == 0);
 
-    float valueOfIncome = 0;
+    string valueOfIncomeInString = "";
+    float valueOfIncomeInFloat = 0;
     int goodValue = 0;
 
     do {
         cout << "----------------------------------------" << endl;
         cout << "Podaj wartosc przychodu, np. 100.22: ";
-        //JAK SIE WPROWADZI NP. 200.c to przechodzi!
-        //DODAC ZAMIANE , na .
-        cin >> valueOfIncome;
+        cin >> valueOfIncomeInString;
         if( !cin ) {
             cout << "Wprowadzona wartosc nie jest liczba!" << endl;
             Sleep(3000);
@@ -71,11 +70,11 @@ Incomes BudgetManager::getDateOfNewIncome() {
             goodValue = 0;
         }
         else{
-            AuxiliaryMethods::checkValue(valueOfIncome);
+            valueOfIncomeInFloat = AuxiliaryMethods::conversionStringToFloat(valueOfIncomeInString);
             goodValue = 1;
         }
     } while(goodValue == 0);
-    income.setIncomeValue(valueOfIncome);
+    income.setIncomeValue(valueOfIncomeInFloat);
 
     string nameOfIncome = "";
     cout << "----------------------------------------" << endl;

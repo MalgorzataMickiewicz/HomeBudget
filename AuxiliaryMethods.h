@@ -16,9 +16,8 @@ public:
     bool static checkYear(int month, int year, int day);
     float static conversionStringToFloat(string valueInString);
     string static conversionIntToStringSeparatedDash(int dateInInt);
-    static string conversionIntToString(int numberInInt);
-    static bool checkValue(float valueInFloat);
-    static string conversionFloatToString(float valueInFloat);
+    string static conversionIntToString(int numberInInt);
+    string static conversionFloatToString(float numberInFloat);
 };
 
 #endif
