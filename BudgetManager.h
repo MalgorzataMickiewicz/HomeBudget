@@ -45,9 +45,7 @@ public:
     void summOfIncomes();
     void summOfExpenses();
     void showBalance();
-    //bool sortByDate(Expenses* t1, Expenses* t2);
-    //DODAC WYDATKI DLA DANEGO OKRESU
-
+    //bool sortByDate(Expenses &t1, Expenses &t2);
 };
 
 #endif

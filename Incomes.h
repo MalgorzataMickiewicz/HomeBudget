@@ -15,6 +15,7 @@ class Incomes {
     string nameOfIncome;
 
 public:
+
 //Setters
     void setIncomeID(int incomeID);
     void setIncomeDate(int newIncomeDate);

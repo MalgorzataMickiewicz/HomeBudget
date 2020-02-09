@@ -56,8 +56,6 @@
 		<Unit filename="UsersFileManager.h" />
 		<Unit filename="UsersManager.cpp" />
 		<Unit filename="UsersManager.h" />
-		<Unit filename="XMLFile.cpp" />
-		<Unit filename="XMLFile.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -21,4 +21,11 @@
 <value>215.21</value>
 <name>Test3</name>
 </income>
+<income>
+<incomeId>4</incomeId>
+<userId>1</userId>
+<date>2019-01-21</date>
+<value>1000.21</value>
+<name>test2</name>
+</income>
 </incomes>

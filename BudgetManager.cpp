@@ -230,8 +230,10 @@ void BudgetManager::summOfIncomes(){
 void BudgetManager::printAllExpenses() {
     //DODAC SORTOWANIE
     //sort (expenses.begin(), expenses.end(), sortByDate);
+
     cout << "----------"<< "WYDATKI" << "----------" << endl;
     if(!expenses.empty()){
+    sort(expenses.begin(), expenses.end());
     for(int i = 0; i< expenses.size(); i++) {
         cout << "Expense ID: " << expenses[i].getExpenseID() << endl;
         cout << "User ID: " << expenses[i].getUserID() << endl;
@@ -275,9 +277,11 @@ void BudgetManager::showBalance(){
         system("Pause");
     }
 }
-
 /*
-bool BudgetManager::sortByDate(Expenses* t1, Expenses* t2){
+bool BudgetManager::sortByDate(Expenses &t1, Expenses &t2){
+
     return t1.*getExpenseDate() < t2.*getExpenseDate();
+    return 0;
 }
 */
+

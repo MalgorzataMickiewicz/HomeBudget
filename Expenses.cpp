@@ -17,7 +17,6 @@ void Expenses::setLoggedUserID(int newLoggedUserID) {
     LOGGED_USER_ID = newLoggedUserID;
 }
 
-
 //Getter
 int Expenses::getExpenseID() {
     return expenseID;
@@ -34,4 +33,3 @@ string Expenses::getExpenseName() {
 int Expenses::getUserID() {
     return LOGGED_USER_ID;
 }
-
