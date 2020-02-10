@@ -40,11 +40,11 @@ public:
     void showCurrentMonth();
     void showPreviousMonth();
     void showSelectedPeriod();
-    void printAllIncomes();
-    void printAllExpenses();
-    void summOfIncomes();
-    void summOfExpenses();
-    void showBalance();
+    void printAllIncomes(int date);
+    void printAllExpenses(int date);
+    void summOfIncomes(int date);
+    void summOfExpenses(int date);
+    void showBalance(int date);
     //bool sortByDate(Expenses &t1, Expenses &t2);
 };
 

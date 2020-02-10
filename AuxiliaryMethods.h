@@ -18,6 +18,10 @@ public:
     string static conversionIntToStringSeparatedDash(int dateInInt);
     string static conversionIntToString(int numberInInt);
     string static conversionFloatToString(float numberInFloat);
+    int static checkCurrentMonth();
+    int static checkPreviousMonth();
+    int static checkNumberOfDay(int previousMonth, int year);
+    int static getFirstDayOfPreviousMonth(int previousMonthDate);
 };
 
 #endif

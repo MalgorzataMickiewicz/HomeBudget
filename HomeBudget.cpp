@@ -91,6 +91,7 @@ void HomeBudget::showCurrentMonth(){
 void HomeBudget::showPreviousMonth(){
     budgetManager->showPreviousMonth();
 }
+
 void HomeBudget::showSelectedPeriod(){
     budgetManager->showSelectedPeriod();
 }

@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
 1999745173 Å<
 
-1581185490 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\auxiliarymethods.cpp
+1581360336 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\auxiliarymethods.cpp
 	<iostream>
 	<sstream>
 	<cstdlib>
@@ -27,7 +27,7 @@
 	<iostream>
 	<string>
 
-1581256926 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.cpp
+1581360036 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.cpp
 	<iomanip>
 	<algorithm>
 	<vector>
@@ -41,7 +41,7 @@
 	"Markup.h"
 	"ExpensesFileManager.h"
 
-1581190195 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.cpp
+1581357454 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\homebudget.cpp
 	"HomeBudget.h"
 	"UsersManager.h"
 
@@ -52,7 +52,7 @@
 	"Markup.h"
 	"IncomesFileManager.h"
 
-1581190226 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
+1581357400 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\main.cpp
 	"HomeBudget.h"
 	<iostream>
 
@@ -88,7 +88,7 @@
 
 1579634520 source:c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\filesmanager.cpp
 
-1581256163 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomes.h
+1581355569 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\incomes.h
 	<iostream>
 	<cstdlib>
 
@@ -97,7 +97,7 @@
 
 1580649307 D
 
-1581256661 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
+1581353695 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\budgetmanager.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -109,7 +109,7 @@
 	"IncomesFileManager.h"
 	"ExpensesFileManager.h"
 
-1581185490 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\auxiliarymethods.h
+1581360042 c:\kurs_programowania\c++\19.programowanie_obiektowe\budzet_domowy\homebudget\auxiliarymethods.h
 	<iostream>
 	<string>
 

@@ -30,6 +30,11 @@ public:
     string getIncomeName();
     int getUserID();
 
+      bool operator<(const Incomes& other) const
+    {
+      return dateOfIncome < other.dateOfIncome;
+    }
+
 };
 
 #endif
