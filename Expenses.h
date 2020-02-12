@@ -21,7 +21,6 @@ public:
     void setExpenseName(string newExpenseName);
     void setLoggedUserID(int newLoggedUserID);
 
-
 //Getters
     int getExpenseID();
     int getExpenseDate();
@@ -29,6 +28,10 @@ public:
     string getExpenseName();
     int getUserID();
 
+    bool operator<(const Expenses& other) const
+    {
+      return dateOfExpense < other.dateOfExpense;
+    }
 };
 
 #endif

@@ -24,6 +24,8 @@ class BudgetManager {
     ExpensesFileManager expensesFileManager;
     float summValueOfIncomes;
     float summValueOfExpenses;
+    int firstDateWithoutDashes;
+    int secondDateWithoutDashes;
 
     Incomes getDateOfNewIncome();
     Expenses getDateOfNewExpense();
@@ -40,14 +42,12 @@ public:
     void showCurrentMonth();
     void showPreviousMonth();
     void showSelectedPeriod();
-    void printAllIncomes();
-    void printAllExpenses();
-    void summOfIncomes();
-    void summOfExpenses();
-    void showBalance();
-    //bool sortByDate(Expenses* t1, Expenses* t2);
-    //DODAC WYDATKI DLA DANEGO OKRESU
-
+    void printAllIncomes(int date);
+    void printAllExpenses(int date);
+    void summOfIncomes(int date);
+    void summOfExpenses(int date);
+    void showBalance(int date);
+    //bool sortByDate(Expenses &t1, Expenses &t2);
 };
 
 #endif

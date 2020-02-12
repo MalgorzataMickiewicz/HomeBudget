@@ -15,6 +15,7 @@ class Incomes {
     string nameOfIncome;
 
 public:
+
 //Setters
     void setIncomeID(int incomeID);
     void setIncomeDate(int newIncomeDate);
@@ -28,6 +29,11 @@ public:
     float getIncomeValue();
     string getIncomeName();
     int getUserID();
+
+      bool operator<(const Incomes& other) const
+    {
+      return dateOfIncome < other.dateOfIncome;
+    }
 
 };
 

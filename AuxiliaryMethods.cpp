@@ -47,6 +47,96 @@ int AuxiliaryMethods::checkActualDate() {
     return actualDateInInt;
 }
 
+int AuxiliaryMethods::checkCurrentMonth(){
+    int firstDayOfCurrentMonth = 0;
+    string dayInStirng = "";
+
+    int currentDateInInt = checkActualDate();
+    string currentDateInString = conversionIntToString(currentDateInInt);
+    dayInStirng = currentDateInString.substr(6,2);
+    int currentDayInInt = conversionStringToInt(dayInStirng);
+    firstDayOfCurrentMonth = currentDateInInt - currentDayInInt + 1;
+
+    return firstDayOfCurrentMonth;
+}
+
+int AuxiliaryMethods::checkPreviousMonth(){
+    int previousMonthInInt = 0;
+    int year = 0;
+    int previousMonthDate = 0;
+     string previousDateInString = "";
+
+    int currentDateInInt = checkActualDate();
+    string currentDateInString = conversionIntToString(currentDateInInt);
+    string currentMonthInString = currentDateInString.substr(4,2);
+    string currentDayInString = currentDateInString.substr(6,2);
+    string currentYearInString = currentDateInString.substr(0,4);
+
+    int currentDayInInt = conversionStringToInt(currentDayInString);
+    int currentMonthInInt = conversionStringToInt(currentMonthInString);
+    int currentYearInInt = conversionStringToInt(currentYearInString);
+
+    if(currentMonthInInt > 1){
+        previousMonthInInt = currentMonthInInt - 1;
+        year = currentYearInInt;
+    }
+    else{
+        previousMonthInInt = 12;
+        year = currentYearInInt - 1;
+    }
+    int numberOfDayPreviousMonthInInt = checkNumberOfDay(previousMonthInInt, year);
+    string numberOfDayPreviousMonthInString = conversionIntToString(numberOfDayPreviousMonthInInt);
+    string previousMonthInString = conversionIntToString(previousMonthInInt);
+    if(previousMonthInInt < 10){
+        previousMonthInString.insert(0,"0");
+    }
+    string yearInString = conversionIntToString(year);
+    previousDateInString.insert(0,yearInString);
+    previousDateInString.insert(4,previousMonthInString);
+    previousDateInString.insert(6,numberOfDayPreviousMonthInString);
+
+    previousMonthDate = conversionStringToInt(previousDateInString);
+
+    return previousMonthDate;
+}
+
+int AuxiliaryMethods::getFirstDayOfPreviousMonth(int previousMonthDateInInt){
+    int firstDayOfPreviousMonthInInt = 0;
+    string previousMonthDateInString = conversionIntToString(previousMonthDateInInt);
+    string numberOfDayInString = previousMonthDateInString.substr(6,2);
+    int numberOfDayInInt = conversionStringToInt(numberOfDayInString);
+    firstDayOfPreviousMonthInInt = previousMonthDateInInt - numberOfDayInInt +1;
+
+    return firstDayOfPreviousMonthInInt;
+}
+
+int AuxiliaryMethods::checkNumberOfDay(int previousMonth, int year){
+    int numberOfDayInMonth = 0;
+    if (previousMonth == 4 || previousMonth == 6 || previousMonth == 9 || previousMonth == 11) {
+            numberOfDayInMonth = 30;
+            return numberOfDayInMonth;
+    }else if (previousMonth == 2) {
+        bool leapyear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        if (leapyear == 0) {
+                numberOfDayInMonth = 28;
+                return numberOfDayInMonth;
+            }else {
+             numberOfDayInMonth = 29;
+            return numberOfDayInMonth;
+        }
+        }else if(previousMonth == 1 || previousMonth== 3 || previousMonth == 5 || previousMonth == 7 || previousMonth == 8 || previousMonth == 10 || previousMonth == 12) {
+            numberOfDayInMonth = 31;
+            return numberOfDayInMonth;
+        }
+    }
+
+string AuxiliaryMethods::separateDate(string range){
+    string firstDateWithoutDashes = range.substr(0,4);
+    firstDateWithoutDashes.insert(4,(range.substr(5,2)));
+    firstDateWithoutDashes.insert(6,(range.substr(8,2)));
+    return firstDateWithoutDashes;
+}
+
 int AuxiliaryMethods::conversionStringToIntDate(string dateInString) {
 
     string shortDateInString = "";
