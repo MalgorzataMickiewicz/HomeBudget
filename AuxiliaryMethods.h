@@ -22,6 +22,7 @@ public:
     int static checkPreviousMonth();
     int static checkNumberOfDay(int previousMonth, int year);
     int static getFirstDayOfPreviousMonth(int previousMonthDate);
+    string static separateDate(string range);
 };
 
 #endif

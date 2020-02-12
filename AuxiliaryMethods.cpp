@@ -130,6 +130,13 @@ int AuxiliaryMethods::checkNumberOfDay(int previousMonth, int year){
         }
     }
 
+string AuxiliaryMethods::separateDate(string range){
+    string firstDateWithoutDashes = range.substr(0,4);
+    firstDateWithoutDashes.insert(4,(range.substr(5,2)));
+    firstDateWithoutDashes.insert(6,(range.substr(8,2)));
+    return firstDateWithoutDashes;
+}
+
 int AuxiliaryMethods::conversionStringToIntDate(string dateInString) {
 
     string shortDateInString = "";

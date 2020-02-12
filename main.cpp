@@ -27,8 +27,8 @@ int main() {
                 homeBudget.showCurrentMonth();
             } else if(choice == 4) {
                 homeBudget.showPreviousMonth();
-            } else if(choice == 5) {//WYBRANY OKRES
-
+            } else if(choice == 5) {
+                homeBudget.showSelectedPeriod();
             } else if(choice == 6) {
                 homeBudget.changePassword();
             } else if(choice == 7) {

@@ -24,6 +24,8 @@ class BudgetManager {
     ExpensesFileManager expensesFileManager;
     float summValueOfIncomes;
     float summValueOfExpenses;
+    int firstDateWithoutDashes;
+    int secondDateWithoutDashes;
 
     Incomes getDateOfNewIncome();
     Expenses getDateOfNewExpense();
