@@ -259,6 +259,7 @@ void BudgetManager::printAllIncomes(int date) {
     else{
         cout << "Nie masz przychodow w wybranym zakresie" << endl;
         system("Pause");
+        printAllExpenses(date);
     }
 }
 
@@ -299,6 +300,7 @@ void BudgetManager::summOfIncomes(int date) {
 }
 
 void BudgetManager::printAllExpenses(int date) {
+    int counter = 0;
     cout << "----------"<< "WYDATKI" << "----------" << endl;
     if(!expenses.empty()) {
         sort(expenses.begin(), expenses.end());
@@ -311,6 +313,7 @@ void BudgetManager::printAllExpenses(int date) {
                     cout << "Expense Date: " << expenses[i].getExpenseDate() << endl;
                     cout << "Expense Value: " << expenses[i].getExpenseValue() << " zl" << endl;
                     cout << "Expense Name: " << expenses[i].getExpenseName() << endl;
+                    counter++;
                 }
             }
         } else if(date == 2) {
@@ -324,25 +327,34 @@ void BudgetManager::printAllExpenses(int date) {
                     cout << "Expense Date: " << expenses[i].getExpenseDate() << endl;
                     cout << "Expense Value: " << expenses[i].getExpenseValue() << " zl" << endl;
                     cout << "Expense Name: " << expenses[i].getExpenseName() << endl;
+                    counter++;
                 }
             }
         } else if (date == 3) {
-            for(int i = 0; i< incomes.size(); i++) {
-                if((incomes[i].getIncomeDate() >= firstDateWithoutDashes) && (incomes[i].getIncomeDate() <= secondDateWithoutDashes)) {
+            for(int i = 0; i < expenses.size(); i++) {
+                if((expenses[i].getExpenseDate() >= firstDateWithoutDashes) && (expenses[i].getExpenseDate() <= secondDateWithoutDashes)) {
                     cout << "----------------------------------------" << endl;
-                    cout << "Income ID: " << incomes[i].getIncomeID() << endl;
-                    cout << "User ID: " << incomes[i].getUserID() << endl;
-                    cout << "Income Date: " << incomes[i].getIncomeDate() << endl;
-                    cout << "Income Value: " << incomes[i].getIncomeValue() << " zl" << endl;
-                    cout << "Income Name: " << incomes[i].getIncomeName() << endl;
-                }
+                    cout << "Income ID: " << expenses[i].getExpenseID() << endl;
+                    cout << "User ID: " << expenses[i].getUserID() << endl;
+                    cout << "Income Date: " << expenses[i].getExpenseDate() << endl;
+                    cout << "Income Value: " << expenses[i].getExpenseValue() << " zl" << endl;
+                    cout << "Income Name: " << expenses[i].getExpenseName() << endl;
+                    counter++;
+                  }
             }
+        } else {
+            cout << "Nie masz jeszcze zadnych wydatkow!" << endl;
+            system("Pause");
         }
-    } else {
-        cout << "Nie masz jeszcze zadnych wydatkow!" << endl;
-        system("Pause");
     }
-    summOfExpenses(date);
+    if(counter != 0){
+        summOfExpenses(date);
+    }
+    else{
+        cout << "Nie masz wydatkow w wybranym zakresie" << endl;
+        system("Pause");
+        showBalance(date);
+    }
 }
 
 void BudgetManager::summOfExpenses(int date) {
@@ -383,16 +395,22 @@ void BudgetManager::summOfExpenses(int date) {
 
 void BudgetManager::showBalance(int date) {
     float summ = summValueOfIncomes - summValueOfExpenses;
-    cout << "----------"<< "BILANS" << "----------" << endl;
-    cout << "----------------------------------------" << endl;
+    if((summValueOfIncomes == 0) && (summValueOfExpenses == 0)){}
+    else{
     if((summValueOfIncomes - summValueOfExpenses) < 0) {
+        cout << "----------"<< "BILANS" << "----------" << endl;
+        cout << "----------------------------------------" << endl;
         cout <<  "Przekroczyles swoj budzet! Wydales za duzo o: " << abs(summ) << " zl" << endl;
         system("Pause");
     } else {
         cout <<  "Mozesz jeszcze wydac w tym miesiacu: " << abs(summ) << " zl" << endl;
         system("Pause");
     }
+    }
     firstDateWithoutDashes = 0;
     secondDateWithoutDashes = 0;
+    summValueOfIncomes = 0;
+    summValueOfExpenses = 0;
+    summ = 0;
 }
 

@@ -124,10 +124,6 @@ void UsersManager::addNewPasswordToVector(string userPassword) {
         if(users[i].getUserID() == loggedUserID) {
             users[i].setUserPassword(userPassword);
             user.setUserPassword(userPassword);
-            user.setUserID(loggedUserID);
-            user.setUserName(users[i].getUserName());
-            user.setUserLastname(users[i].getUserLastname());
-            user.setUserLogin(users[i].getUserLogin());
             cout<<"Haslo zostalo zmienione"<<endl;
             Sleep(1000);
             idCurrentUser = users[i].getUserID();

@@ -239,10 +239,14 @@ float AuxiliaryMethods::conversionStringToFloat(string valueInString) {
     }
     else{
         int placeOfDot = valueInString.find(dot);
+        if(placeOfComma != string::npos){
         lengthOfString = valueInString.length();
         shortValueInString = valueInString.substr(0,placeOfDot+3);
+        }
+        else{
+        shortValueInString = valueInString;
+        }
     }
-
     float valueInFloat = atof(shortValueInString.c_str());
     return valueInFloat;
 }
