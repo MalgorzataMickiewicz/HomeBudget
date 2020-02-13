@@ -9,7 +9,7 @@
 #include "FilesManager.h"
 #include "Incomes.h"
 #include "AuxiliaryMethods.h"
-
+#include "DateOperations.h"
 using namespace std;
 
 class IncomesFileManager: public FileManager {
