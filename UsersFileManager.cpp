@@ -6,7 +6,7 @@ using namespace std;
 void UsersFileManager::addUserToFile(Users user) {
 
     CMarkup xml;
-    bool fileExists = xml.Load( "Users.xml" );
+    bool fileExists = xml.Load( "users.xml" );
 
     if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
@@ -21,7 +21,7 @@ void UsersFileManager::addUserToFile(Users user) {
     xml.AddElem("Name", user.getUserName());
     xml.AddElem("LastName", user.getUserLastname());
     xml.AddElem("Password", user.getUserPassword());
-    xml.Save("Users.xml");
+    xml.Save("users.xml");
 }
 
 vector <Users> UsersFileManager::loadUsersFromFile() {
@@ -29,7 +29,7 @@ vector <Users> UsersFileManager::loadUsersFromFile() {
     vector <Users> users;
     CMarkup xml;
 
-    bool fileExists = xml.Load( "Users.xml" );
+    bool fileExists = xml.Load( "users.xml" );
     if (fileExists) {
         MCD_STR UserId;//create string variable UserId
         MCD_STR Login;//create string variable Login
@@ -65,7 +65,7 @@ vector <Users> UsersFileManager::loadUsersFromFile() {
 
 void UsersFileManager::addUserWithNewPasswordToFile(Users user, int idCurrentUser) {
     CMarkup xml;
-    bool fileExists = xml.Load( "Users.xml" );
+    bool fileExists = xml.Load( "users.xml" );
     if (fileExists) {
         MCD_STR UserId;
         MCD_STR Password;
@@ -81,7 +81,7 @@ void UsersFileManager::addUserWithNewPasswordToFile(Users user, int idCurrentUse
                 xml.AddElem("Password", user.getUserPassword());
                 xml.OutOfElem();
                 xml.OutOfElem();
-                xml.Save("Users.xml");
+                xml.Save("users.xml");
             } else {
                 xml.OutOfElem();
                 xml.OutOfElem();

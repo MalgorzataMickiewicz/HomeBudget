@@ -18,7 +18,7 @@ void IncomesFileManager::addIncomeToFile(Incomes income) {
     xml.IntoElem();
     xml.AddElem("incomeId", AuxiliaryMethods::conversionIntToString(income.getIncomeID()));
     xml.AddElem("userId", AuxiliaryMethods::conversionIntToString(income.getUserID()));
-    xml.AddElem("date", AuxiliaryMethods::conversionIntToStringSeparatedDash(income.getIncomeDate()));
+    xml.AddElem("date", DateOperations::conversionIntToStringSeparatedDash(income.getIncomeDate()));
     xml.AddElem("value", AuxiliaryMethods::conversionFloatToString(income.getIncomeValue()));
     xml.AddElem("name", income.getIncomeName());
     xml.Save("incomes.xml");
@@ -56,7 +56,7 @@ vector <Incomes> IncomesFileManager::loadIncomesFromFile(int loggedUserID) {
             xml.OutOfElem();
             income.setIncomeID(AuxiliaryMethods::conversionStringToInt(incomeId));
             income.setLoggedUserID(AuxiliaryMethods::conversionStringToInt(userId));
-            income.setIncomeDate(AuxiliaryMethods::conversionStringToIntDate(date));
+            income.setIncomeDate(DateOperations::conversionStringToIntDate(date));
             income.setIncomeValue(AuxiliaryMethods::conversionStringToFloat(value));
             income.setIncomeName(name);
             if(loggedUserID == AuxiliaryMethods::conversionStringToInt(userId)) {

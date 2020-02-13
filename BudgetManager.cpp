@@ -32,7 +32,7 @@ Incomes BudgetManager::getDateOfNewIncome() {
         cout << "2. NIE" << endl;
         cin >> choice;
         if (choice == 1) {
-            dateOfIncome = AuxiliaryMethods::checkActualDate();
+            dateOfIncome = DateOperations::checkActualDate();
             income.setIncomeDate(dateOfIncome);
         } else if(choice == 2) {
             do {
@@ -40,7 +40,7 @@ Incomes BudgetManager::getDateOfNewIncome() {
                 cout << "Podaj date przychodu w formacie: YYYY-MM-DD: ";
                 cin.sync();
                 getline(cin,dateOfIncomeInString);
-                dateOfIncome = AuxiliaryMethods::conversionStringToIntDate(dateOfIncomeInString);
+                dateOfIncome = DateOperations::conversionStringToIntDate(dateOfIncomeInString);
                 if(dateOfIncome == 0) {
                     cin.clear();
                 }
@@ -111,7 +111,7 @@ Expenses BudgetManager::getDateOfNewExpense() {
         cout << "2. NIE" << endl;
         cin >> choice;
         if (choice == 1) {
-            dateOfExpense = AuxiliaryMethods::checkActualDate();
+            dateOfExpense = DateOperations::checkActualDate();
             expense.setExpenseDate(dateOfExpense);
         } else if(choice == 2) {
             do {
@@ -119,7 +119,7 @@ Expenses BudgetManager::getDateOfNewExpense() {
                 cout << "Podaj date wydatku w formacie: YYYY-MM-DD: ";
                 cin.sync();
                 getline(cin,dateOfExpenseInString);
-                dateOfExpense = AuxiliaryMethods::conversionStringToIntDate(dateOfExpenseInString);
+                dateOfExpense = DateOperations::conversionStringToIntDate(dateOfExpenseInString);
                 if(dateOfExpense == 0) {
                     cin.clear();
                 }
@@ -188,7 +188,7 @@ void BudgetManager::printAllIncomes(int date) {
         sort(incomes.begin(), incomes.end());
         if(date == 1) {
             for(int i = 0; i< incomes.size(); i++) {
-                if(incomes[i].getIncomeDate() >= AuxiliaryMethods::checkCurrentMonth()) {
+                if(incomes[i].getIncomeDate() >= DateOperations::checkCurrentMonth()) {
                     cout << "----------------------------------------" << endl;
                     cout << "Income ID: " << incomes[i].getIncomeID() << endl;
                     cout << "User ID: " << incomes[i].getUserID() << endl;
@@ -200,8 +200,8 @@ void BudgetManager::printAllIncomes(int date) {
             }
         } else if(date == 2) {
             for(int i = 0; i< incomes.size(); i++) {
-                int previousMonthDate = AuxiliaryMethods::checkPreviousMonth();
-                int previousMonthDateFirstDay = AuxiliaryMethods::getFirstDayOfPreviousMonth(previousMonthDate);
+                int previousMonthDate = DateOperations::checkPreviousMonth();
+                int previousMonthDateFirstDay = DateOperations::getFirstDayOfPreviousMonth(previousMonthDate);
                 if((incomes[i].getIncomeDate() >= previousMonthDateFirstDay) && (incomes[i].getIncomeDate() <= previousMonthDate)) {
                     cout << "----------------------------------------" << endl;
                     cout << "Income ID: " << incomes[i].getIncomeID() << endl;
@@ -221,7 +221,7 @@ void BudgetManager::printAllIncomes(int date) {
                 cout << "Wprowadz 1 date: ";
                 cin.sync();
                 getline(cin,firstDateInString);
-                firstDateWithoutDashes = AuxiliaryMethods::conversionStringToIntDate(firstDateInString);
+                firstDateWithoutDashes = DateOperations::conversionStringToIntDate(firstDateInString);
                 if(firstDateWithoutDashes == 0) {
                     cin.clear();
                 }
@@ -231,7 +231,7 @@ void BudgetManager::printAllIncomes(int date) {
                 cout << "Wprowadz 2 date: ";
                 cin.sync();
                 getline(cin,secondDateInString);
-                secondDateWithoutDashes = AuxiliaryMethods::conversionStringToIntDate(secondDateInString);
+                secondDateWithoutDashes = DateOperations::conversionStringToIntDate(secondDateInString);
                 if(secondDateWithoutDashes == 0) {
                     cin.clear();
                 }
@@ -259,6 +259,7 @@ void BudgetManager::printAllIncomes(int date) {
     else{
         cout << "Nie masz przychodow w wybranym zakresie" << endl;
         system("Pause");
+        printAllExpenses(date);
     }
 }
 
@@ -269,14 +270,14 @@ void BudgetManager::summOfIncomes(int date) {
     if(!incomes.empty()) {
         if(date == 1) {
             for(int i = 0; i< incomes.size(); i++) {
-                if(incomes[i].getIncomeDate() >=  AuxiliaryMethods::checkCurrentMonth()) {
+                if(incomes[i].getIncomeDate() >=  DateOperations::checkCurrentMonth()) {
                     summValueOfIncomes += incomes[i].getIncomeValue();
                 }
             }
         } else if(date == 2) {
             for(int i = 0; i< incomes.size(); i++) {
-                int previousMonthDate = AuxiliaryMethods::checkPreviousMonth();
-                int previousMonthDateFirstDay = AuxiliaryMethods::getFirstDayOfPreviousMonth(previousMonthDate);
+                int previousMonthDate = DateOperations::checkPreviousMonth();
+                int previousMonthDateFirstDay = DateOperations::getFirstDayOfPreviousMonth(previousMonthDate);
                 if((incomes[i].getIncomeDate() >= previousMonthDateFirstDay) && (incomes[i].getIncomeDate() <= previousMonthDate)) {
                     summValueOfIncomes += incomes[i].getIncomeValue();
                 }
@@ -299,24 +300,26 @@ void BudgetManager::summOfIncomes(int date) {
 }
 
 void BudgetManager::printAllExpenses(int date) {
+    int counter = 0;
     cout << "----------"<< "WYDATKI" << "----------" << endl;
     if(!expenses.empty()) {
         sort(expenses.begin(), expenses.end());
         if(date == 1) {
             for(int i = 0; i< expenses.size(); i++) {
-                if(expenses[i].getExpenseDate() >=  AuxiliaryMethods::checkCurrentMonth()) {
+                if(expenses[i].getExpenseDate() >=  DateOperations::checkCurrentMonth()) {
                     cout << "----------------------------------------" << endl;
                     cout << "Expense ID: " << expenses[i].getExpenseID() << endl;
                     cout << "User ID: " << expenses[i].getUserID() << endl;
                     cout << "Expense Date: " << expenses[i].getExpenseDate() << endl;
                     cout << "Expense Value: " << expenses[i].getExpenseValue() << " zl" << endl;
                     cout << "Expense Name: " << expenses[i].getExpenseName() << endl;
+                    counter++;
                 }
             }
         } else if(date == 2) {
             for(int i = 0; i< expenses.size(); i++) {
-                int previousMonthDate = AuxiliaryMethods::checkPreviousMonth();
-                int previousMonthDateFirstDay = AuxiliaryMethods::getFirstDayOfPreviousMonth(previousMonthDate);
+                int previousMonthDate = DateOperations::checkPreviousMonth();
+                int previousMonthDateFirstDay =DateOperations::getFirstDayOfPreviousMonth(previousMonthDate);
                 if((expenses[i].getExpenseDate() >= previousMonthDateFirstDay) && (expenses[i].getExpenseDate() <= previousMonthDate)) {
                     cout << "----------------------------------------" << endl;
                     cout << "Expense ID: " << expenses[i].getExpenseID() << endl;
@@ -324,25 +327,34 @@ void BudgetManager::printAllExpenses(int date) {
                     cout << "Expense Date: " << expenses[i].getExpenseDate() << endl;
                     cout << "Expense Value: " << expenses[i].getExpenseValue() << " zl" << endl;
                     cout << "Expense Name: " << expenses[i].getExpenseName() << endl;
+                    counter++;
                 }
             }
         } else if (date == 3) {
-            for(int i = 0; i< incomes.size(); i++) {
-                if((incomes[i].getIncomeDate() >= firstDateWithoutDashes) && (incomes[i].getIncomeDate() <= secondDateWithoutDashes)) {
+            for(int i = 0; i < expenses.size(); i++) {
+                if((expenses[i].getExpenseDate() >= firstDateWithoutDashes) && (expenses[i].getExpenseDate() <= secondDateWithoutDashes)) {
                     cout << "----------------------------------------" << endl;
-                    cout << "Income ID: " << incomes[i].getIncomeID() << endl;
-                    cout << "User ID: " << incomes[i].getUserID() << endl;
-                    cout << "Income Date: " << incomes[i].getIncomeDate() << endl;
-                    cout << "Income Value: " << incomes[i].getIncomeValue() << " zl" << endl;
-                    cout << "Income Name: " << incomes[i].getIncomeName() << endl;
-                }
+                    cout << "Income ID: " << expenses[i].getExpenseID() << endl;
+                    cout << "User ID: " << expenses[i].getUserID() << endl;
+                    cout << "Income Date: " << expenses[i].getExpenseDate() << endl;
+                    cout << "Income Value: " << expenses[i].getExpenseValue() << " zl" << endl;
+                    cout << "Income Name: " << expenses[i].getExpenseName() << endl;
+                    counter++;
+                  }
             }
+        } else {
+            cout << "Nie masz jeszcze zadnych wydatkow!" << endl;
+            system("Pause");
         }
-    } else {
-        cout << "Nie masz jeszcze zadnych wydatkow!" << endl;
-        system("Pause");
     }
-    summOfExpenses(date);
+    if(counter != 0){
+        summOfExpenses(date);
+    }
+    else{
+        cout << "Nie masz wydatkow w wybranym zakresie" << endl;
+        system("Pause");
+        showBalance(date);
+    }
 }
 
 void BudgetManager::summOfExpenses(int date) {
@@ -353,14 +365,14 @@ void BudgetManager::summOfExpenses(int date) {
         if(date == 1) {
             summValueOfExpenses = 0;
             for(int i = 0; i< expenses.size(); i++) {
-                if(expenses[i].getExpenseDate() >=  AuxiliaryMethods::checkCurrentMonth()) {
+                if(expenses[i].getExpenseDate() >=  DateOperations::checkCurrentMonth()) {
                     summValueOfExpenses += expenses[i].getExpenseValue();
                 }
             }
         } else if(date == 2) {
             for(int i = 0; i< expenses.size(); i++) {
-                int previousMonthDate = AuxiliaryMethods::checkPreviousMonth();
-                int previousMonthDateFirstDay = AuxiliaryMethods::getFirstDayOfPreviousMonth(previousMonthDate);
+                int previousMonthDate = DateOperations::checkPreviousMonth();
+                int previousMonthDateFirstDay = DateOperations::getFirstDayOfPreviousMonth(previousMonthDate);
                 if((expenses[i].getExpenseDate() >= previousMonthDateFirstDay) && (expenses[i].getExpenseDate() <= previousMonthDate)) {
                     summValueOfExpenses += expenses[i].getExpenseValue();
                 }
@@ -383,16 +395,22 @@ void BudgetManager::summOfExpenses(int date) {
 
 void BudgetManager::showBalance(int date) {
     float summ = summValueOfIncomes - summValueOfExpenses;
-    cout << "----------"<< "BILANS" << "----------" << endl;
-    cout << "----------------------------------------" << endl;
+    if((summValueOfIncomes == 0) && (summValueOfExpenses == 0)){}
+    else{
     if((summValueOfIncomes - summValueOfExpenses) < 0) {
+        cout << "----------"<< "BILANS" << "----------" << endl;
+        cout << "----------------------------------------" << endl;
         cout <<  "Przekroczyles swoj budzet! Wydales za duzo o: " << abs(summ) << " zl" << endl;
         system("Pause");
     } else {
         cout <<  "Mozesz jeszcze wydac w tym miesiacu: " << abs(summ) << " zl" << endl;
         system("Pause");
     }
+    }
     firstDateWithoutDashes = 0;
     secondDateWithoutDashes = 0;
+    summValueOfIncomes = 0;
+    summValueOfExpenses = 0;
+    summ = 0;
 }
 

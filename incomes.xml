@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<expenses>
-<expense>
-<expenseId>1</expenseId>
+<incomes>
+<income>
+<incomeId>1</incomeId>
 <userId>1</userId>
 <date>2020-01-01</date>
-<value>200</value>
+<value>100</value>
 <name>Test1</name>
-</expense>
-</expenses>
+</income>
+</incomes>

@@ -17,7 +17,7 @@ void ExpensesFileManager::addExpenseToFile(Expenses expense) {
     xml.IntoElem();
     xml.AddElem("expense");
     xml.IntoElem();
-    dateSeparatedDash = AuxiliaryMethods::conversionIntToStringSeparatedDash(expense.getExpenseDate());
+    dateSeparatedDash = DateOperations::conversionIntToStringSeparatedDash(expense.getExpenseDate());
     xml.AddElem("expenseId", AuxiliaryMethods::conversionIntToString(expense.getExpenseID()));
     xml.AddElem("userId", AuxiliaryMethods::conversionIntToString(expense.getUserID()));
     xml.AddElem("date", dateSeparatedDash);
@@ -58,7 +58,7 @@ vector <Expenses> ExpensesFileManager::loadExpensesFromFile(int loggedUserID) {
             xml.OutOfElem();
             expense.setExpenseID(AuxiliaryMethods::conversionStringToInt(expenseId));
             expense.setLoggedUserID(AuxiliaryMethods::conversionStringToInt(userId));
-            expense.setExpenseDate(AuxiliaryMethods::conversionStringToIntDate(date));
+            expense.setExpenseDate(DateOperations::conversionStringToIntDate(date));
             expense.setExpenseValue(AuxiliaryMethods::conversionStringToFloat(value));
             expense.setExpenseName(name);
             if(loggedUserID == AuxiliaryMethods::conversionStringToInt(userId)) {

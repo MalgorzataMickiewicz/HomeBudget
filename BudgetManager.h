@@ -34,7 +34,11 @@ public:
     BudgetManager(string nameOfFile, string nameOfFile2, int loggedUserID)
         : incomesFileManager(nameOfFile), expensesFileManager(nameOfFile2), LOGGED_USER_ID(loggedUserID){
     incomes = incomesFileManager.loadIncomesFromFile(LOGGED_USER_ID),
-    expenses = expensesFileManager.loadExpensesFromFile(LOGGED_USER_ID);
+    expenses = expensesFileManager.loadExpensesFromFile(LOGGED_USER_ID),
+    summValueOfIncomes = 0,
+    summValueOfExpenses = 0,
+    firstDateWithoutDashes = 0,
+    secondDateWithoutDashes= 0;
     };
 
     void addIncome();
